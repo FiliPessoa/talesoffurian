@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <style type="text/css"></style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myCanvas" width="384" height="160" style="border:1px solid #000000;"></canvas>
+    </div>
+    <div>
+        <input type="range" min="1" max="6" value="1" id="setTempo8" />
+        <input type="range" min="1" max="6" value="4" id="setTempo1" />
+    </div>
+    <div>
+        <input type="range" min="1" max="6" value="5" id="setTempo7" />
+        <input type="range" min="1" max="6" value="1" id="setTempo2" />
+    </div>
+    <div>
+        <input type="range" min="1" max="6" value="1" id="setTempo6" />
+        <input type="range" min="1" max="6" value="5" id="setTempo3" />
+    </div>
+    <div>
+        <input type="range" min="1" max="6" value="4" id="setTempo5" />
+        <input type="range" min="1" max="6" value="1" id="setTempo4" />
+    </div>
+
+    <button id="play">play</button>
+    <button id="pause">pause</button>
+    <audio id="v1" src="sounds/violao/v1.mp3" loop></audio>
+    <audio id="v2" src="sounds/violao/v2.mp3" loop></audio>
+    <audio id="v3" src="sounds/violao/v3.mp3" loop></audio>
+    <audio id="v4" src="sounds/violao/v4.mp3" loop></audio>
+    <audio id="v5" src="sounds/violao/v5.mp3" loop></audio>
+    <audio id="v6" src="sounds/violao/v6.mp3" loop></audio>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        const play = document.getElementById('play');
+        const pause = document.getElementById('pause');
+        const audio = document.getElementById('v1');
+        const audio1 = document.getElementById('v1');
+        const audio2 = document.getElementById('v2');
+        const audio3 = document.getElementById('v3');
+        const audio4 = document.getElementById('v4');
+        const audio5 = document.getElementById('v5');
+        const audio6 = document.getElementById('v6');
+
+        const colorMap = {
+            1: "yellow",
+            2: "orange",
+            3: "purple",
+            4: "green",
+            5: "red",
+            6: "blue",
+            0: "grey"
+        };
+
+        const soundMap = {
+            "yellow": audio1,
+            "orange": audio2,
+            "purple": audio3,
+            "green": audio4,
+            "red": audio5,
+            "blue": audio6,
+        };
+
+        let tempos = {
+            setTempo1: colorMap[4],
+            setTempo2: colorMap[1],
+            setTempo3: colorMap[5],
+            setTempo4: colorMap[1],
+            setTempo5: colorMap[4],
+            setTempo6: colorMap[1],
+            setTempo7: colorMap[5],
+            setTempo8: colorMap[1]
+        };
+
+        
+        play.addEventListener('click', async function () {
+            for (let [key, value] of Object.entries(tempos)) {
+                soundMap[value].play();
+                await new Promise(resolve => setTimeout(resolve, 1237));
+                soundMap[value].pause();
+        }
+        });
+
+        pause.addEventListener('click', function () {
+            audio.currentTime = 0;
+            audio.pause();
+        });
+
+        audio.addEventListener('ended', function () {
+            this.currentTime = 0;
+            this.play();
+        });
+
+        audio.play;
+
+        for (let [key, value] of Object.entries(tempos)) {
+            document.getElementById(key).addEventListener('change', function () {
+                tempos[key] = colorMap[this.value];
+                drawCanvas();
+            });
+        }
+
+        function drawCanvas() {
+            let shapes = [
+                [{ x: 80, y: 192 - 112 }, { x: 122, y: 143 - 112 }, { x: 80, y: 122 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 150, y: 192 - 112 }, { x: 122, y: 143 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 122, y: 241 - 112 }, { x: 150, y: 192 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 80, y: 262 - 112 }, { x: 122, y: 241 - 112 }],
+                
+                [{ x: 80, y: 192 - 112 }, { x: 31, y: 241 - 112 }, { x: 80, y: 262 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 10, y: 192 - 112 }, { x: 31, y: 241 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 31, y: 143 - 112 }, { x: 10, y: 192 - 112 }],
+                [{ x: 80, y: 192 - 112 }, { x: 80, y: 122 - 112 }, { x: 31, y: 143 - 112 }],
+
+            ];
+
+            ctx.clearRect(0, 0, c.width, c.height);
+
+            shapes.forEach((shape, index) => {
+                ctx.beginPath();
+                ctx.fillStyle = Object.values(tempos)[index];
+                ctx.moveTo(shape[0].x, shape[0].y);
+                ctx.lineTo(shape[1].x, shape[1].y);
+                ctx.lineTo(shape[2].x, shape[2].y);
+                ctx.closePath();
+                ctx.fill();
+            });
+        }
+
+        drawCanvas();
+    </script>
+</body>
+
+</html>
+
+<!-- Path: test.html 
+
+class SoundFX{
+    constructor(param){
+        this.id = param.id;
+        this.audio = param.audio;
+        this.shape = param.shape;
+        this.color = param.color;
+    }
+
+    play(){
+
+    }
+    stop(){
+    }
+}
+
+-->

@@ -12,9 +12,8 @@ class GameObject {
         this.top = config.top ||52;
         
         
-        
-
         this.direction = config.direction || "down";
+
         this.sprite = new Sprite({
             gameObject: this,
             src: config.src || "/image/characters/furian.png",
