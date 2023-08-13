@@ -1,0 +1,83 @@
+.hihat {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:130px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+.up {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:30px;
+    width:384px;
+   margin-top:34px;  
+    background: rgb(181, 228, 168);
+    
+}
+
+
+.left5
+ {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:34px;
+    width:384px;
+    padding-top:4px;
+    padding-left: 10px;
+    background: rgb(136, 136, 136);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+.right5 {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:100px;
+    width:384px;
+    padding-top: 5px;
+    padding-left: 10px;
+    
+    background: rgb(191, 110, 40);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+.play{
+    height:30px;
+    width:50px;
+    
+    margin-bottom: 100px;
+}
+
+
+.textbox{
+    height:84px;
+    width:180px;   
+    margin-top: 2px;
+    margin-left: 20px;
+}
+
+
+.fechado{
+    height:30px;
+    width:30px;
+    border-radius: 30px;
+    margin-left: 15px;
+}
+
+.aberto{
+    height:30px;
+    width:30px;
+    border-radius: 30px;
+    margin-left: 10px;
+}

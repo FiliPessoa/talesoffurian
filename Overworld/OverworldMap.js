@@ -1,0 +1,1042 @@
+class OverworldMap{
+    constructor(config){
+        this.overworld = null;
+        this.gameObjects = config.gameObjects;
+        this.walls = config.walls || {};
+        this.cutsceneSpaces = config.cutsceneSpaces || {};
+        this.lowerImage=new Image();
+        this.lowerImage.src = config.lowerSrc;
+
+        this.upperImage=new Image();
+        this.upperImage.src = config.upperSrc;
+
+        this.isCutscenePlaying = false;
+
+    }
+    drawLowerImage(ctx, cameraPerson){
+        ctx.drawImage(this.lowerImage,utils.withGrid(10)-cameraPerson.x,utils.withGrid(12) - cameraPerson.y)
+    }
+    drawUpperImage(ctx,cameraPerson){
+      ctx.drawImage(this.upperImage,utils.withGrid(10)-cameraPerson.x,utils.withGrid(12) - cameraPerson.y)
+    }
+    isSpaceTaken(currentX, currentY, direction) {
+      const {x,y} = utils.nextPosition(currentX,currentY,direction);
+      return this.walls[`${x},${y}`] || false;
+    }
+
+    mountObjects() {
+      Object.keys(this.gameObjects).forEach(key => {
+         let object = this.gameObjects[key];
+         object.id = key;
+         object.mount(this);
+
+    })
+    }
+
+    async startCutscene(events){
+
+      this.isCutscenePlaying = true;
+
+      for (let i=0; i<events.length;i++) {
+         const eventHandler = new OverWorldEvent({
+            event: events[i],
+            map: this,
+
+         })
+         await eventHandler.init();
+      }
+     
+      this.isCutscenePlaying = false;
+
+      Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
+
+    }
+    async nextCutscene(events){
+
+      this.isCutscenePlaying = true;
+
+      for (let i=0; i<events.length;i++) {
+         const eventHandler = new OverWorldEvent({
+            event: events[i],
+            map: this,
+
+         })
+         await eventHandler.init();
+      }
+     
+      this.isCutscenePlaying = false;
+
+      Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
+
+    }
+    
+
+    checkForActionCutscene(){
+      const hero = this.gameObjects["hero"];
+      const nextCoords = utils.nextPosition(hero.x,hero.y,hero.direction);
+      const match = Object.values(this.gameObjects).find(object => {
+         return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
+      });
+      if (!this.isCutscenePlaying && match && match.talking.length) {
+         this.startCutscene(match.talking[0].events)
+      }
+    }
+
+    checkForFutstepCutscene() {
+      const hero = this.gameObjects["hero"];
+      const match = this.cutsceneSpaces[ `${hero.x},${hero.y}` ];
+      if(!this.isCutscenePlaying && match ) {
+         this.startCutscene(match[0].events)
+      }
+    }
+
+    
+
+    addWall(x,y) {
+      this.walls[`${x},${y}`]=true;
+    }
+    removeWall(x,y) {
+      delete this.walls[`${x},${y}`]
+    }
+    moveWall(wasX,wasY,direction) {
+      this.removeWall(wasX,wasY);
+      const {x,y} = utils.nextPosition(wasX, wasY, direction);
+      this.addWall(x,y);
+    }
+}
+
+window.OverworldMaps = {
+   
+    World: {
+      
+        lowerSrc: "/image/maps/map.png",
+        
+        upperSrc: "",
+        gameObjects:{
+           
+            
+           character2: new Person({
+            x:utils.withGrid(80), 
+            y:utils.withGrid(53), 
+            behaviorLoop:[
+               {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+               {type:"walk",direction:"up"},
+               {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"walk",direction:"right"},
+             {type:"stand",direction:"up",time:1800},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"up"},
+             {type:"walk",direction:"right"},
+             {type:"stand",direction:"left",time:100},
+             {type:"stand",direction:"left",time:90000},
+             
+              
+            ],
+            talking: [
+               {
+                  events: [
+                     {type:"textMessage", text:"Entre e Fique a Vontade", faceHero: "character2"},
+                  ]
+               }
+            ]
+            
+        }),
+        lovetree1: new GameObject({
+         x:1353-utils.withGrid(51),
+         y:1230+utils.withGrid(-26),
+         selectionHeight:280,
+selectionWidth:300,
+height:60,
+width:70,
+         src:"/image/objects/lovetree.png"
+      }),
+                guitar: new GameObject({
+                  x:utils.withGrid(90)+6,
+                  y:utils.withGrid(56)+2,
+                selectionHeight:68,
+                selectionWidth:232,
+                height:12,
+                width:38,
+                src:"/image/instrument/violao2.png"
+             }),
+            passaro: new GameObject({
+               x:utils.withGrid(104),
+                y:utils.withGrid(45),
+               selectionHeight:146,
+               selectionWidth:161,
+               height:10,
+               width:12,
+               src:"/image/objects/passaro.png"
+            }),
+            peixe: new GameObject({
+               x:1426-utils.withGrid(7),
+                y:1205+utils.withGrid(33),
+               selectionHeight:187,
+               selectionWidth:94,
+               height:12,
+               width:7,
+               src:"/image/objects/peixe.png"
+            }),
+            hero: new Person({
+               isPlayerControlled: true,
+               // x:utils.withGrid(101), 91,76
+               // y:utils.withGrid(40),     
+                x:utils.withGrid(29), 
+                y:utils.withGrid(50),                
+           }),
+             barco: new GameObject({
+                x:1353-utils.withGrid(23),
+                y:1220+utils.withGrid(-23),
+                selectionHeight:36,
+                selectionWidth:53,
+                height:60,
+                width:100,
+                src:"/image/objects/barco.png"
+             }),
+             barco1: new GameObject({
+               x:1353-utils.withGrid(34),
+               y:1220+utils.withGrid(-23),
+               selectionHeight:36,
+               selectionWidth:53,
+               height:60,
+               width:100,
+               src:"/image/objects/barco.png"
+            }),
+            lovetree: new GameObject({
+               x:utils.withGrid(50),
+               y:utils.withGrid(50),
+               selectionHeight:512,
+               selectionWidth:512,
+               height:60,
+               width:100,
+               src:"/image/tree/lovetree.png"
+            }),
+            
+            fogueira: new GameObject({
+               x:1353-utils.withGrid(33),
+               y:1230+utils.withGrid(-10),
+               selectionHeight:280,
+      selectionWidth:219,
+      height:60,
+      width:40,
+               src:"/image/objects/fogueira.png"
+            }),
+             vara: new GameObject({
+                x:1415-utils.withGrid(6),
+                y:1205+utils.withGrid(15),
+                selectionHeight:183,
+                selectionWidth:131,
+                height:50,
+                width:30,
+                src:"/image/objects/vara.png"
+             }),
+       
+       },
+       cutsceneSpaces:{
+         // [utils.asGridCoord(14,25)]
+          [utils.asGridCoord(85,76)] : [
+            
+             {
+                events:[
+                   {type:"pescaria", text:"Pescar"},
+ 
+                ]
+             }
+          ],
+          [utils.asGridCoord(85,77)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(50,50)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(51,50)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(50,57)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(51,57)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(20,13)] : [
+            
+            {
+               events:[
+                  {type:"bolsa", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+          [utils.asGridCoord(29,46)] : [
+             {
+                events:[
+                   {type:"changeMap", map:"Galpao"},
+                  
+   
+                ]
+             }
+          ],
+        
+          [utils.asGridCoord(95,37)] : [
+             {
+                events:[
+                   {type:"changeMap", map:"Church"},
+                  
+ 
+                ]
+             }
+          ]
+          
+ 
+         },
+       walls: {
+         [utils.asGridCoord(49,35)] : true,
+         [utils.asGridCoord(49,36)] : true,
+         [utils.asGridCoord(49,37)] : true,
+         [utils.asGridCoord(50,38)] : true,
+         [utils.asGridCoord(50,39)] : true,
+         [utils.asGridCoord(50,40)] : true,
+         [utils.asGridCoord(50,41)] : true,
+         [utils.asGridCoord(49,42)] : true,
+         [utils.asGridCoord(48,43)] : true,
+         [utils.asGridCoord(47,44)] : true,
+         [utils.asGridCoord(46,45)] : true,
+         [utils.asGridCoord(45,46)] : true,
+         [utils.asGridCoord(44,47)] : true,
+         [utils.asGridCoord(44,48)] : true,
+         [utils.asGridCoord(44,49)] : true,
+         [utils.asGridCoord(44,50)] : true,
+         [utils.asGridCoord(44,51)] : true,
+         [utils.asGridCoord(44,52)] : true,
+         [utils.asGridCoord(45,52)] : true,
+         [utils.asGridCoord(46,52)] : true,
+         [utils.asGridCoord(47,52)] : true,
+         [utils.asGridCoord(48,52)] : true,
+         [utils.asGridCoord(49,52)] : true,
+         [utils.asGridCoord(49,51)] : true,
+         [utils.asGridCoord(49,50)] : true,
+         [utils.asGridCoord(50,49)] : true,
+         [utils.asGridCoord(57,49)] : true,
+         [utils.asGridCoord(58,50)] : true,
+         [utils.asGridCoord(58,51)] : true,
+         [utils.asGridCoord(58,52)] : true,
+         [utils.asGridCoord(58,53)] : true,
+         [utils.asGridCoord(58,54)] : true,
+         [utils.asGridCoord(58,55)] : true,
+         [utils.asGridCoord(58,56)] : true,
+         [utils.asGridCoord(58,57)] : true,
+         [utils.asGridCoord(57,58)] : true,
+         [utils.asGridCoord(50,58)] : true,
+         [utils.asGridCoord(49,57)] : true,
+         [utils.asGridCoord(49,56)] : true,
+         [utils.asGridCoord(49,55)] : true,
+         [utils.asGridCoord(48,55)] : true,
+         [utils.asGridCoord(47,55)] : true,
+         [utils.asGridCoord(46,55)] : true,
+         [utils.asGridCoord(45,55)] : true,
+         [utils.asGridCoord(44,55)] : true,
+         [utils.asGridCoord(44,56)] : true,
+         [utils.asGridCoord(44,57)] : true,
+         [utils.asGridCoord(44,58)] : true,
+         [utils.asGridCoord(45,59)] : true,
+         [utils.asGridCoord(46,60)] : true,
+         [utils.asGridCoord(47,61)] : true,
+         [utils.asGridCoord(48,61)] : true,
+         [utils.asGridCoord(49,61)] : true,
+         [utils.asGridCoord(50,61)] : true,
+         [utils.asGridCoord(51,61)] : true,
+         [utils.asGridCoord(52,61)] : true,
+         [utils.asGridCoord(53,61)] : true,
+         [utils.asGridCoord(54,62)] : true,
+         [utils.asGridCoord(55,63)] : true,
+         [utils.asGridCoord(56,64)] : true,
+         [utils.asGridCoord(56,65)] : true,
+         [utils.asGridCoord(56,66)] : true,
+         [utils.asGridCoord(56,67)] : true,
+         [utils.asGridCoord(56,68)] : true,
+         [utils.asGridCoord(56,69)] : true,
+         [utils.asGridCoord(56,70)] : true,
+         [utils.asGridCoord(56,71)] : true,
+         [utils.asGridCoord(56,72)] : true,
+         [utils.asGridCoord(56,73)] : true,
+         [utils.asGridCoord(56,74)] : true,
+         [utils.asGridCoord(55,75)] : true,
+         [utils.asGridCoord(55,76)] : true,
+         [utils.asGridCoord(54,77)] : true,
+         [utils.asGridCoord(54,78)] : true,
+         [utils.asGridCoord(53,79)] : true,
+         [utils.asGridCoord(52,80)] : true,
+         [utils.asGridCoord(52,81)] : true,
+         [utils.asGridCoord(51,80)] : true,
+         
+      }
+    },
+    
+
+    Church: {
+        lowerSrc:"/image/maps/church1.png",
+        upperSrc: "",
+        
+        gameObjects:{
+         caixote1: new GameObject({
+            x:216-50+utils.withGrid(-6),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:113,
+            height:50,
+            width:21,
+            src:"/image/objects/caixote.png"
+         }),
+         planta1: new GameObject({
+            x:216-50+utils.withGrid(-6),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:111,
+            height:50,
+            width:21,
+            src:"/image/objects/planta1.png"
+         }),
+         caixote2: new GameObject({
+            x:216-50+utils.withGrid(-4),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:113,
+            height:50,
+            width:21,
+            src:"/image/objects/caixote.png"
+         }),
+         planta2: new GameObject({
+            x:216-50+utils.withGrid(-4),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:111,
+            height:50,
+            width:21,
+            src:"/image/objects/planta2.png"
+         }),
+         caixote3: new GameObject({
+            x:216+62-utils.withGrid(8),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:113,
+            height:50,
+            width:21,
+            src:"/image/objects/caixote.png"
+         }),
+         planta3: new GameObject({
+            x:216+62-utils.withGrid(8),
+            y:142-12,
+            selectionHeight:241,
+            selectionWidth:111,
+            height:50,
+            width:21,
+            src:"/image/objects/planta3.png"
+         }),
+         caixote4: new GameObject({
+           x:216+62+utils.withGrid(-6),
+           y:142-12,
+           selectionHeight:241,
+           selectionWidth:113,
+           height:50,
+           width:21,
+           src:"/image/objects/caixote.png"
+        }),
+        planta4: new GameObject({
+           x:216+62+utils.withGrid(-6),
+           y:142-12,
+           selectionHeight:241,
+           selectionWidth:111,
+           height:50,
+           width:21,
+           src:"/image/objects/planta4.png"
+        }),
+        
+        violao: new GameObject({
+         x:243-utils.withGrid(7),
+         y:207-utils.withGrid(0),
+         selectionHeight:232,
+         selectionWidth:67,
+         height:38,
+         width:12,
+         src:"/image/instrument/violao.png"
+      }),
+      
+        hero: new Person({
+            isPlayerControlled: true,
+            x:utils.withGrid(8),
+            y:utils.withGrid(25),
+        }),
+        character2: new Person({
+         x:utils.withGrid(8), 
+         y:utils.withGrid(25), 
+         behaviorLoop:[
+            
+          
+           
+         ],
+         talking: [
+            {
+               events: [
+                  {type:"textMessage", text:"Entre e Fique a Vontade", faceHero: "character2"},
+               ]
+            }
+         ]
+         
+     }),
+         
+         tambor: new GameObject({
+            x:185+utils.withGrid(-4),
+            y:217+utils.withGrid(6),
+            selectionHeight:152,
+            selectionWidth:185,
+            height:25,
+            width:30,
+            src:"/image/instrument/tambor.png"
+         }),
+         mesa: new GameObject({
+           x:192.5-utils.withGrid(6),
+           y:267-15,
+           selectionHeight:130,
+           selectionWidth:219,
+           height:30,
+           width:81,
+           src:"/image/objects/mesa.png"
+        }),
+        
+         bud: new GameObject({
+            x:212-utils.withGrid(6),
+            y:250,
+            selectionHeight:163,
+            selectionWidth:112,
+            height:10,
+            width:5,
+            src:"/image/objects/bud.png"
+         }),
+         cachimbo: new GameObject({
+            x:204-utils.withGrid(6),
+            y:261,
+            selectionHeight:38,
+            selectionWidth:132,
+            height:3,
+            width:9,
+            src:"/image/objects/cachimbo.png"
+         }),
+         tarot: new GameObject({
+           x:220-utils.withGrid(6),
+           y:256,
+           selectionHeight:186,
+           selectionWidth:198,
+           height:7,
+           width:6,
+           src:"/image/objects/tarot.png"
+        }),
+         moeda: new GameObject({
+            x:231-utils.withGrid(6),
+            y:260,
+            selectionHeight:100,
+            selectionWidth:100,
+            height:10,
+            width:10,
+            src:"/image/objects/moeda.png"
+         }),
+         moeda2: new GameObject({
+           x:228-utils.withGrid(6),
+           y:255,
+           selectionHeight:100,
+           selectionWidth:100,
+           height:10,
+           width:10,
+           src:"/image/objects/moeda.png"
+        }),
+        moeda3: new GameObject({
+           x:234-utils.withGrid(6),
+           y:255,
+           selectionHeight:100,
+           selectionWidth:100,
+           height:10,
+           width:10,
+           src:"/image/objects/moeda.png"
+        }),
+         caixa: new GameObject({
+            x:240-utils.withGrid(6),
+            y:255,
+            selectionHeight:50,
+            selectionWidth:137,
+            height:7,
+            width:20,
+            src:"/image/objects/caixa.png"
+         }),             
+        },
+        cutsceneSpaces:{
+        // [utils.asGridCoord(14,25)]
+         [utils.asGridCoord(9,14)] : [
+            {
+               events:[
+                  {type:"caixaCantante", text:"Caixa Cantante"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,12)] : [
+            {
+               events:[
+                  {type:"flor", text:"Violao"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,14)] : [
+            {
+               events:[
+                  {type:"tarot", text:"Oraculo"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(7,14)] : [
+            {
+               events:[
+                  {type:"textMessage", text:"Beck"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,18)] : [
+            {
+               events:[
+                  {type:"metronomo", text:"Tambor"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,22)] : [
+            {
+               events:[
+                  {type:"textMessage", text:"Meditar"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,21)] : [
+            {
+               events:[
+                  {type:"changeMap", map:"Galpao"},
+
+               ]
+            }
+         ],
+         [utils.asGridCoord(8,25)] : [
+            {
+               events:[
+                  {type:"changeMap", map:"World"},
+
+               ]
+            }
+         ]
+         
+         
+
+        },
+        walls: {
+         [utils.asGridCoord(3,4)] : true,
+         [utils.asGridCoord(4,4)] : true,
+         [utils.asGridCoord(5,4)] : true,
+         [utils.asGridCoord(6,4)] : true,
+         [utils.asGridCoord(7,4)] : true,
+         [utils.asGridCoord(8,4)] : true,
+         [utils.asGridCoord(9,4)] : true,
+         [utils.asGridCoord(10,4)] : true,
+         [utils.asGridCoord(11,4)] : true,
+         [utils.asGridCoord(12,4)] : true,
+         [utils.asGridCoord(13,4)] : true,
+
+         [utils.asGridCoord(3,4)] : true,
+         [utils.asGridCoord(3,5)] : true,
+         [utils.asGridCoord(3,6)] : true,
+         [utils.asGridCoord(3,7)] : true,
+         [utils.asGridCoord(3,8)] : true,
+         [utils.asGridCoord(3,9)] : true,
+         [utils.asGridCoord(3,10)] : true,
+         [utils.asGridCoord(3,11)] : true,
+         [utils.asGridCoord(3,12)] : true,
+         [utils.asGridCoord(3,13)] : true,
+         [utils.asGridCoord(3,14)] : true,
+         [utils.asGridCoord(3,15)] : true,
+         [utils.asGridCoord(3,16)] : true,
+         [utils.asGridCoord(3,17)] : true,
+         [utils.asGridCoord(3,18)] : true,
+         [utils.asGridCoord(3,19)] : true,
+         [utils.asGridCoord(3,20)] : true,
+         [utils.asGridCoord(3,21)] : true,
+         [utils.asGridCoord(3,22)] : true,
+         [utils.asGridCoord(3,23)] : true,
+         [utils.asGridCoord(3,24)] : true,
+         [utils.asGridCoord(3,25)] : true,
+
+         [utils.asGridCoord(13,4)] : true,
+         [utils.asGridCoord(13,5)] : true,
+         [utils.asGridCoord(13,6)] : true,
+         [utils.asGridCoord(13,7)] : true,
+         [utils.asGridCoord(13,8)] : true,
+         [utils.asGridCoord(13,9)] : true,
+         [utils.asGridCoord(13,10)] : true,
+         [utils.asGridCoord(13,11)] : true,
+         [utils.asGridCoord(13,12)] : true,
+         [utils.asGridCoord(13,13)] : true,
+         [utils.asGridCoord(13,14)] : true,
+         [utils.asGridCoord(13,15)] : true,
+         [utils.asGridCoord(13,16)] : true,
+         [utils.asGridCoord(13,17)] : true,
+         [utils.asGridCoord(13,18)] : true,
+         [utils.asGridCoord(13,19)] : true,
+         [utils.asGridCoord(13,20)] : true,
+         [utils.asGridCoord(13,21)] : true,
+         [utils.asGridCoord(13,22)] : true,
+         [utils.asGridCoord(13,23)] : true,
+         [utils.asGridCoord(13,24)] : true,
+         [utils.asGridCoord(13,25)] : true,
+
+         
+         [utils.asGridCoord(4,9)] : true,
+         [utils.asGridCoord(5,9)] : true,
+         [utils.asGridCoord(6,9)] : true,
+         [utils.asGridCoord(10,9)] : true,
+         [utils.asGridCoord(11,9)] : true,
+         [utils.asGridCoord(12,9)] : true,
+
+         
+         [utils.asGridCoord(4,25)] : true,
+         [utils.asGridCoord(5,25)] : true,
+         [utils.asGridCoord(6,25)] : true,
+         [utils.asGridCoord(7,25)] : true,
+         [utils.asGridCoord(8,26)] : true,
+         [utils.asGridCoord(9,25)] : true,
+         [utils.asGridCoord(10,25)] : true,
+         [utils.asGridCoord(11,25)] : true,
+
+         [utils.asGridCoord(6,15)] : true,
+         [utils.asGridCoord(7,15)] : true,
+         [utils.asGridCoord(8,15)] : true,
+         [utils.asGridCoord(9,15)] : true,
+         [utils.asGridCoord(10,15)] : true,
+         [utils.asGridCoord(6,16)] : true,
+         [utils.asGridCoord(7,16)] : true,
+         [utils.asGridCoord(8,16)] : true,
+         [utils.asGridCoord(9,16)] : true,
+         [utils.asGridCoord(10,16)] : true,
+      },
+    },
+    Galpao: {
+      
+      lowerSrc: "/image/maps/galpao.png",
+      
+      upperSrc: "",
+      gameObjects:{
+         
+         
+     caixote4: new GameObject({
+      x:216+62+utils.withGrid(-4),
+      y:142-12+utils.withGrid(11),
+      selectionHeight:241,
+      selectionWidth:113,
+      height:50,
+      width:21,
+      src:"/image/objects/caixote.png"
+   }),
+  
+   guitar: new GameObject({
+      x:260+utils.withGrid(-4),
+      y:215+utils.withGrid(2),
+    selectionHeight:68,
+    selectionWidth:232,
+    height:12,
+    width:38,
+    src:"/image/instrument/violao2.png"
+ }),
+armario1: new GameObject({
+      x:210+utils.withGrid(-2),
+      y:283-15+utils.withGrid(7),
+      
+      selectionHeight:280,
+      selectionWidth:219,
+      height:60,
+      width:60,
+      src:"/image/objects/estante.png"
+   }),
+   armario12: new GameObject({
+      x:200+utils.withGrid(-10),
+      y:283-15+utils.withGrid(7),
+      
+      selectionHeight:280,
+      selectionWidth:219,
+      height:60,
+      width:60,
+      src:"/image/objects/gaveta.png"
+   }),  
+   mesinha: new GameObject({
+      x:193+utils.withGrid(-9),
+      y:290-15+utils.withGrid(-2),
+      
+      selectionHeight:280,
+      selectionWidth:219,
+      height:33,
+      width:33,
+      src:"/image/objects/mesinha.png"
+   }),
+   caixa: new GameObject({
+      x:248+utils.withGrid(-12),
+      y:258+utils.withGrid(-1),
+      selectionHeight:50,
+      selectionWidth:137,
+      height:7,
+      width:20,
+      src:"/image/objects/caixa.png"
+   }),
+   escrivainha1: new GameObject({
+      x:181+utils.withGrid(-12),
+      y:279-15+utils.withGrid(-9),
+      selectionHeight:130,
+      selectionWidth:219,
+      height:35,
+      width:301,
+      src:"/image/objects/bancada.png"
+   }),
+   bancada1: new GameObject({
+      x:182+utils.withGrid(-10),
+      y:295-15+utils.withGrid(-9),
+      selectionHeight:170,
+      selectionWidth:219,
+      height:70,
+      width:82,
+      src:"/image/objects/bancada1.png"
+   }),
+   bancada2: new GameObject({
+      x:177+utils.withGrid(2),
+      y:295-15+utils.withGrid(-9),
+      selectionHeight:170,
+      selectionWidth:219,
+      height:70,
+      width:82,
+      src:"/image/objects/bancada1.png"
+   }),
+   hero: new Person({
+      isPlayerControlled: true,
+      x:utils.withGrid(8),
+      y:utils.withGrid(25),
+  }),   
+  tambor: new GameObject({
+   x:180+utils.withGrid(-8),
+   y:217+utils.withGrid(7),
+   selectionHeight:152,
+   selectionWidth:185,
+   height:25,
+   width:30,
+   src:"/image/instrument/tambor.png"
+}),
+bottle: new GameObject({
+   x:utils.withGrid(4),
+   y:utils.withGrid(24),
+   selectionHeight:163,
+   selectionWidth:112,
+   height:20,
+   width:10,
+   src:"/image/objects/bottle.png"
+}),
+bud: new GameObject({
+   x:212-utils.withGrid(6),
+   y:250-utils.withGrid(8),
+   selectionHeight:163,
+   selectionWidth:112,
+   height:10,
+   width:5,
+   src:"/image/objects/bud.png"
+}),
+cachimbo: new GameObject({
+   x:204-utils.withGrid(6),
+   y:261-utils.withGrid(8),
+   selectionHeight:38,
+   selectionWidth:132,
+   height:3,
+   width:9,
+   src:"/image/objects/cachimbo.png"
+}),
+tarot: new GameObject({
+  x:220-utils.withGrid(6),
+  y:256-utils.withGrid(8),
+  selectionHeight:186,
+  selectionWidth:198,
+  height:7,
+  width:6,
+  src:"/image/objects/tarot.png"
+}),
+moeda: new GameObject({
+   x:231-utils.withGrid(6),
+   y:260-utils.withGrid(8),
+   selectionHeight:100,
+   selectionWidth:100,
+   height:10,
+   width:10,
+   src:"/image/objects/moeda.png"
+}),
+moeda2: new GameObject({
+  x:228-utils.withGrid(6),
+  y:255-utils.withGrid(8),
+  selectionHeight:100,
+  selectionWidth:100,
+  height:10,
+  width:10,
+  src:"/image/objects/moeda.png"
+}),
+moeda3: new GameObject({
+  x:234-utils.withGrid(6),
+  y:255-utils.withGrid(8),
+  selectionHeight:100,
+  selectionWidth:100,
+  height:10,
+  width:10,
+  src:"/image/objects/moeda.png"
+}),
+},
+     cutsceneSpaces:{
+      
+       
+  
+  
+       [utils.asGridCoord(8,25)] : [
+          {
+             events:[
+                {type:"changeMap", map:"World"},
+               
+
+             ]
+          }
+       ],
+       [utils.asGridCoord(12,24)] : [
+         {
+            events:[
+               {type:"inventory", text:"inventario"},
+
+            ]
+         }
+      ],
+      [utils.asGridCoord(4,19)] : [
+         {
+            events:[
+               {type:"metronomo", text:"Tambor"},
+
+            ]
+         }
+      ],
+      [utils.asGridCoord(4,14)] : [
+         {
+            events:[
+               {type:"caixaCantante", text:"Tambor"},
+
+            ]
+         }
+      ],
+      [utils.asGridCoord(12,14)] : [
+         {
+            events:[
+               {type:"flor", text:"Tambor"},
+
+            ]
+         }
+      ],
+   
+      [utils.asGridCoord(5,24)] : [
+            
+         {
+            events:[
+               {type:"textMessage", text:"Você encontra uma garrafa de vidro selada com um pergaminho dentro"},
+               {type:"textMessage", text:"O pergaminho diz:"},
+               //{type:"textMessage", text:"no pergaminho está escrito:"},
+               {type:"textMessage", text:"Vá Para o Norte! Quando chegar onde o mar e o rio se encontram, encontrará um tesouro"},
+               //{type:"walk",who:"hero",direction:"left"},
+               //{type:"changeMap", map:"World"},
+
+            ]
+         }
+      ], 
+      [utils.asGridCoord(8,7)] : [
+         {
+            events:[
+               {type:"changeMap", map:"Church"},
+              
+
+            ]
+         }
+      ],
+
+      },
+  },
+    
+}

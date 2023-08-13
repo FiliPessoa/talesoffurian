@@ -1,0 +1,29 @@
+.ActionBox {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:160px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+.ActionBox_p {
+    margin:10px;
+    padding:10px;
+    font-size: 24px;
+}
+.ActionBox_button {
+    margin: 0;
+    font-size: 16px;
+    padding: 0;
+    background: none;
+    border:0;
+    font-family: inherit;
+    cursor: pointer;
+
+    position: absolute;
+    right: 6px;
+    bottom: 0;
+} 

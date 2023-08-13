@@ -1,0 +1,127 @@
+.CaixaCantante {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:130px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+
+.drum{
+    outline: none;
+    font-size:  small;
+    font-weight: 900;
+    color:#010101;
+    display: inline-block;
+    width:25px;
+    height:25px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin:2.5px;
+    background-color: white;
+}
+
+
+
+.top{
+    padding-top: 7px;
+    padding-left: 44px;
+    height:60px;
+    width:376px;
+    background-color: rgb(136, 136, 136);
+    
+}
+
+.less{
+    width:25px;
+    height:25px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 25px;
+    margin-bottom: 30px;
+
+}
+
+.plus{
+    width:25px;
+    height:25px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 25px;
+    margin-bottom: 30px;
+
+}
+
+.screen{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: 20px;
+    width:180px;
+    height:35px;
+    border: 3px solid  #404b69;
+    background-color: rgb(84, 204, 213);
+    
+
+}
+
+.bottom{
+    padding-top: 12px;
+    padding-left: 2px;
+    height:60px;
+    width:376px;
+    background-color: rgb(153, 103, 67);
+    
+}
+
+.q{
+    background-color: rgb(229, 63, 63);
+
+}
+.w{
+    background-color: rgb(34, 113, 216);
+
+}
+.a{
+    background-color: rgb(98, 217, 244);
+
+}
+.s{
+    background-color: rgb(236, 216, 40);
+
+}
+.d{
+    background-color: rgb(246, 144, 19);
+
+}
+.f{
+    background-color: rgb(143, 85, 219);
+
+}
+.g{
+    background-color: rgb(44, 188, 75);
+
+}
+.h{
+    background-color: rgb(229, 63, 63);
+
+}
+.j{
+    background-color: rgb(34, 113, 216);
+
+}
+.k{
+    background-color: rgb(98, 217, 244);
+
+}
+.l{
+    background-color: rgb(236, 216, 40);
+
+}
+
+
+
+
+

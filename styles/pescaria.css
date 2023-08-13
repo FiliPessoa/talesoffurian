@@ -1,0 +1,158 @@
+.Fish{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:144px;
+    width:384px;
+    padding:4px;
+    background: cornflowerblue;
+
+    color: var(--menu-font-color);
+
+}
+
+
+
+.peixe{   
+    margin-top: 5px;
+    margin-left: 5px;
+    height:125px;
+    width:125px;
+    padding:4px;
+    background: cornflowerblue;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+.center{    
+    margin-top: 0px;  
+    margin-left: 270px;
+    height:135px;
+    width:103px;
+    padding:4px;
+    background: chocolate;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bridge{    
+    margin-top: 100px;  
+    margin-left: 250px;
+    height:35px;
+    width:30px;
+    padding:4px;
+    background: chocolate;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.frame{    
+    margin-top: -135px;
+    margin-left:3px;
+    height:135px;
+    width:135px;
+    
+    background: chocolate;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+.right2{    
+    margin-top: -135px;
+    margin-left: 138px;
+   
+    height:135px;
+    width:120px;
+    padding:4px;
+    background: chocolate;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+
+
+.menu1{
+  
+    margin-top: 2px;
+    height:117px;
+    width:95px;
+    padding:4px;
+    background: green;
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.nome{
+    left:0;
+    right:0;
+    bottom:0;
+    height:20px;
+    width:87px;
+    padding:4px;
+  
+   
+
+}
+.preco{
+    left:0;
+    right:0;
+    bottom:0;
+    height:20px;
+    width:87px;
+    padding:4px;
+  
+   
+
+}
+.lendario{
+    left:0;
+    right:0;
+    bottom:0;
+    height:20px;
+    width:87px;
+    padding:4px;
+  
+   
+
+}
+.tipo{
+    left:0;
+    right:0;
+    bottom:0;
+    height:20px;
+    width:87px;
+    padding:4px;
+  
+   
+
+}
+.mil{
+    left:0;
+    right:0;
+    bottom:0;
+    height:20px;
+    width:87px;
+    padding:4px;
+  
+   
+
+}
+.pescar{
+    margin-left:30px;
+    margin-top:30px;
+    
+    
+    height:50px;
+    width:50px;
+    border-radius: 50px;
+    padding:4px;
+  
+   
+
+}
+

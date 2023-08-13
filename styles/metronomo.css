@@ -1,0 +1,371 @@
+.Metronomo {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:160px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+.up {
+    position: absolute;
+
+    height:30px;
+    width:384px;
+   margin-top:34px;  
+    background: rgb(181, 228, 168);
+    
+}
+
+.bipsc1 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    margin-left:4px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+.bipsc2{
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+.bipsc3 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc4 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc5 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc6 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc7 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc8 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc9 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc10 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc11 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc12 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+.bipsc13 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc14 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc15 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipsc16 {
+ 
+    
+    height:25px;
+    width:15px;
+    margin:2px;
+    background: rgb(181, 228, 168);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.bipc1 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin:2px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+
+.bipc3 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+.bipc5 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+.bipc7 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+.bipc9 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+.bipc11 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+.bipc13 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+.bipc15 {
+ 
+    
+    height:25px;
+    width:30px;
+    margin-left:12px;
+    background: rgb(184, 168, 228);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+.left5
+ {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:34px;
+    width:384px;
+    padding-top:4px;
+    padding-left: 10px;
+    background: rgb(136, 136, 136);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+.right5 {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:100px;
+    width:384px;
+    padding-top: 5px;
+    padding-left: 10px;
+    
+    background: rgb(191, 110, 40);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+.play{
+    height:30px;
+    width:50px;
+    
+    margin-bottom: 100px;
+}
+
+
+.bum{
+    height:80px;
+    width:80px;
+    border-radius: 80px;
+    margin-top: 5px;
+    margin-left: 40px;
+}
+.pa{
+    height:60px;
+    width:60px;
+    border-radius: 60px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.pa2{
+    height:60px;
+    width:60px;
+    border-radius: 60px;
+    margin-left: 90px;
+    margin-bottom: 10px;
+}
+
+.fechado{
+    height:30px;
+    width:30px;
+    border-radius: 30px;
+    margin-left: 15px;
+}
+
+.aberto{
+    height:30px;
+    width:30px;
+    border-radius: 30px;
+    margin-left: 10px;
+}

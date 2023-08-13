@@ -1,0 +1,86 @@
+.Fish{
+    left:0;
+    right:0;
+    bottom:0;
+    height:190px;
+    width:384px;
+    padding:4px;
+    background:rgb(99, 201, 106);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+
+
+
+.baralho1{
+    margin-left: 20;
+    margin-top: 15;
+    
+    height:45px;
+    width:100px;
+    padding:4px;
+  
+   
+
+}
+.baralho2{
+    
+    height:45px;
+    width:100px;
+    padding:4px;
+    margin-left: 15;
+    margin-top: 15;
+  
+   
+
+}
+.baralho3{
+    
+    height:45px;
+    width:100px;
+    padding:4px;
+    margin-top: 15;
+    margin-left: 10;
+  
+   
+
+}
+.carta1{
+    margin-left: 60;
+    
+    height:100px;
+    width:45px;
+    padding:4px;
+    margin-top: 15;
+  
+   
+
+}
+.carta2{
+    margin-left: 55;
+    
+    height:100px;
+    width:45px;
+    padding:4px;
+    margin-top: 15;
+  
+   
+
+}
+.carta3{
+    margin-left: 55;
+    
+    height:100px;
+    width:45px;
+    padding:4px;
+    margin-top: 15;
+  
+   
+
+}
+
+
+
+
+

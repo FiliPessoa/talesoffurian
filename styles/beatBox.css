@@ -1,0 +1,130 @@
+.BeatBox {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:130px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+}
+
+
+.drum8{
+    outline: none;
+    font-size:  small;
+    font-weight: 900;
+    color:#010101;
+    display: inline-block;
+    width:28px;
+    height:28px;
+    margin:-1px;
+    text-align: center;
+    margin-top: 2px;
+ 
+  
+  
+    background-color: white;
+}
+
+
+
+.top8{
+    padding-top: 7px;
+    padding-left: 44px;
+    height:60px;
+    width:376px;
+    background-color: rgb(136, 136, 136);
+    
+}
+
+.less8{
+    width:25px;
+    height:25px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 25px;
+    margin-bottom: 30px;
+
+}
+
+.plus8{
+    width:25px;
+    height:25px;
+    background-color: rgb(136, 136, 136);
+    border-radius: 25px;
+    margin-bottom: 30px;
+
+}
+
+.screen8{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: 20px;
+    width:180px;
+    height:35px;
+    border: 3px solid  #404b69;
+    background-color: rgb(84, 204, 213);
+    
+
+}
+
+.bottom8{
+    padding-top: 12px;
+    padding-left: 2px;
+    height:60px;
+    width:376px;
+    background-color: rgb(153, 103, 67);
+    
+}
+
+.q8{
+    margin-left: 20px;
+    background-color: rgb(122, 82, 54);
+
+}
+.w8{
+    background-color: rgb(122, 82, 54);
+
+}
+.a8{
+    background-color: rgb(122, 82, 54);
+
+}
+.s8{
+    background-color: rgb(122, 82, 54);
+
+}
+.d8{
+    background-color: rgb(122, 82, 54);
+
+}
+.f8{
+    background-color: rgb(122, 82, 54);
+
+}
+.g8{
+    background-color: rgb(122, 82, 54);
+
+}
+.h8{
+    background-color: rgb(122, 82, 54);
+
+}
+.j8{
+    background-color: rgb(122, 82, 54);
+
+}
+.k8{
+    background-color: rgb(122, 82, 54);
+
+}
+.l8{
+    background-color: rgb(122, 82, 54);
+
+}
+
+
+
+
+
