@@ -115,37 +115,35 @@ class OverWorldEvent{
         violao.init( document.querySelector(".game-container"))
     }
     pescaria(resolve) {
-
         let hasWorm = false;
         let hasVara = false;
-
         if(inv.length > 0) {
         inv.forEach((object) => {
-            if (object.id == 'vara') {
+            if (object.id == 'minhoca') {
                 hasWorm = true;
-                return
             }
-            if (object.id == 'isca') {
+            if (object.id == 'vara') {
                 hasVara = true;
-                return
             }
         })
         
-        if (hasWorm && hasVara) {
+        if (hasWorm == true && hasVara == true) {
         const pescar = new Pescaria({
             onComplete: () => resolve()
         });
 
             pescar.init(document.querySelector(".game-container"));
-            }
             return
+            }
         }
         const pescar = new TextMessage({
-            text: 'sem isca ou vara',
+            text: 'sem minhoca',
             onComplete: () => resolve()
         })
         pescar.init(document.querySelector(".game-container"))
         };
+    
+
     bolsa(resolve) {
         const invper = new InventarioPersonagem({
             onComplete: () => resolve()

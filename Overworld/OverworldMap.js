@@ -460,7 +460,7 @@ loja4: new GameObject({
                   type:"interactionBox", 
                   text:"Pegar Fruta",
                   id:"fruto proibido",
-                  inventoryObject: new InventoryObject({
+                  inventoryObject: new Isca({
                      id: "fruto proibido",
                      src: '/image/plant/fruto.png',  
                  })},
@@ -476,7 +476,7 @@ loja4: new GameObject({
                   type:"interactionBox", 
                   text:"Pegar vara",
                   id:"vara",
-                  inventoryObject: new InventoryObject({
+                  inventoryObject: new Isca({
                      id: "vara",
                      src: '/image/tools/vara.png',  
                  })},
@@ -492,7 +492,7 @@ loja4: new GameObject({
                   type:"interactionBox", 
                   text:"Pegar minhoca",
                   id:"minhoca",
-                  inventoryObject: new InventoryObject({
+                  inventoryObject: new Isca({
                      id: "minhoca",
                      src: '/image/peixe/worm.png',  
                  })},

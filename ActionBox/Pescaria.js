@@ -68,7 +68,8 @@ function displayRandomImage() {
         src: path,
         name: path.split('/').pop().split('.')[0],  // extracting name from the path, e.g., "peixe1"
         price: Number(path.match(/\d+/)[0]), // You can set appropriate price
-        type: 'FishType'  // You can set appropriate type
+        type: 'FishType',  // You can set appropriate type
+        isca: Number(path.match(/\d+/)[0]) == 1 ? new Isca({name: 'minhoca'}) : new Isca({})
     }));
 
     // Get a random index from the array of Fish objects
@@ -84,7 +85,7 @@ function displayRandomImage() {
 
     nameHtml.innerHTML = randomFish.name;
     typeHtml.innerHTML = randomFish.type;
-    priceHtml.innerHTML = randomFish.price.match(/\d+/)[0];
+    priceHtml.innerHTML = randomFish.price;
     
 }
 

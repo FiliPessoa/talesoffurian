@@ -1,7 +1,7 @@
-class Fish extends TradableItem {
+
+class Isca extends TradableItem {
     constructor(config) {
         super(config);
-        this.isca = config.isca;
     }
 
 update(state) {}
