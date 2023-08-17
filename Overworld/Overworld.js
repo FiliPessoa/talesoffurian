@@ -64,7 +64,7 @@ class Overworld{
 
     init() {
 
-        this.startMap(window.OverworldMaps.Galpao);
+        this.startMap(window.OverworldMaps.World);
 
         this.bindActionInput(); 
         this.bindHeroPositionCheck();

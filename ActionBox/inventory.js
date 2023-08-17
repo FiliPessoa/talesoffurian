@@ -1,3 +1,10 @@
+/*
+<img width="50" height="50"id="randomImage" src="/image/tools/vara.png" alt="">
+<img width="50" height="50"id="randomImage" src="/image/tools/pa.png" alt="">
+<img width="50" height="50"id="randomImage" src="/image/plant/fruto.png" alt="">
+<img width="50" height="50"id="randomImage" src="/image/peixe/worm.png" alt="">
+*/
+
 class Inventory{
     constructor({ text, onComplete }) {
         this.text = text;
@@ -7,21 +14,15 @@ class Inventory{
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("InventoryPersonal");
-        
+        let imagesHtml = '';
+        if(inv.length >0) {
 
-        this.element.innerHTML = (`
-        
-        <img width="50" height="50"id="randomImage" src="/image/tools/vara.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/pa.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/worm.png" alt="">
-        
-       
-        
-    
-        
-        `)
-       
+        for (let item of inv) {
+            imagesHtml += `<img width="50" height="50" id="randomImage" src="${item.sprite.image.src}" alt="">\n`;
+        }
+
+  this.element.innerHTML = imagesHtml;
+        }
         
         this.actionListener = new KeyPressListener("Enter", () => {
            this.actionListener.unbind();

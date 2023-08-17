@@ -334,8 +334,8 @@ loja4: new GameObject({
             }),
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(82), 
-                y:utils.withGrid(65),                
+                x:utils.withGrid(40), 
+                y:utils.withGrid(50),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),

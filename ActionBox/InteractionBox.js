@@ -1,4 +1,4 @@
-class TextMessage{
+class InteractionBox{
     constructor({ text, onComplete }) {
         this.text = text;
         this.onComplete = onComplete;
@@ -13,6 +13,11 @@ class TextMessage{
             <button class="TextMessage_button">Next</button>
         `)
         this.element.querySelector("button").addEventListener("click", () => {
+            inv.push(new InventoryObject({
+                id: "fruto proibido",
+                src: "/image/plant/fruto.png",
+            }));
+            console.log('added item');
             this.done();
         });
         

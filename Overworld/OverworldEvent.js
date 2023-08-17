@@ -49,7 +49,7 @@ class OverWorldEvent{
             obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
         }
         
-        const message = new TextMessage({
+        const message = new InteractionBox({
             text: this.event.text,
             onComplete: () => resolve()
         })
