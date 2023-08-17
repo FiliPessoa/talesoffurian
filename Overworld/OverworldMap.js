@@ -334,8 +334,8 @@ loja4: new GameObject({
             }),
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(40), 
-                y:utils.withGrid(50),                
+                x:utils.withGrid(35), 
+                y:utils.withGrid(60),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -463,6 +463,22 @@ loja4: new GameObject({
                   inventoryObject: new InventoryObject({
                      id: "fruto proibido",
                      src: '/image/plant/fruto.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(35,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Pegar vara",
+                  id:"vara",
+                  inventoryObject: new InventoryObject({
+                     id: "vara",
+                     src: '/image/tools/vara.png',  
                  })},
 
                ]
