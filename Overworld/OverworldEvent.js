@@ -42,6 +42,21 @@ class OverWorldEvent{
 
     }
 
+    interactionBox(resolve) {
+
+        if(this.event.faceHero){
+            const obj = this.map.gameObjects[this.event.faceHero];
+            obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
+        }
+        
+        const interactionBox = new InteractionBox({
+            text: this.event.text,
+            id: this.event.id,
+            inventoryObject: this.event.inventoryObject,
+            onComplete: () => resolve()
+        })
+        interactionBox.init( document.querySelector(".game-container"))
+    }
     textMessage(resolve) {
 
         if(this.event.faceHero){
@@ -49,7 +64,7 @@ class OverWorldEvent{
             obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
         }
         
-        const message = new InteractionBox({
+        const message = new TextMessage({
             text: this.event.text,
             onComplete: () => resolve()
         })

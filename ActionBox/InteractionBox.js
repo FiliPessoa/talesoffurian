@@ -1,8 +1,9 @@
 class InteractionBox{
-    constructor({ text, onComplete }) {
+    constructor({ text, onComplete, inventoryObject}) {
         this.text = text;
         this.onComplete = onComplete;
         this.element = null;
+        this.inventoryObject = inventoryObject;
     }
     createElement() {
         this.element = document.createElement("div");
@@ -13,10 +14,7 @@ class InteractionBox{
             <button class="TextMessage_button">Next</button>
         `)
         this.element.querySelector("button").addEventListener("click", () => {
-            inv.push(new InventoryObject({
-                id: "fruto proibido",
-                src: "/image/plant/fruto.png",
-            }));
+            inv.push(this.inventoryObject);
             console.log('added item');
             this.done();
         });

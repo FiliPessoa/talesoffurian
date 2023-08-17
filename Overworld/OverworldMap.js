@@ -456,7 +456,14 @@ loja4: new GameObject({
             
             {
                events:[
-                  {type:"textMessage", text:"Pegar Fruta"},
+                  {
+                  type:"interactionBox", 
+                  text:"Pegar Fruta",
+                  id:"fruto proibido",
+                  inventoryObject: new InventoryObject({
+                     id: "fruto proibido",
+                     src: '/image/plant/fruto.png',  
+                 })},
 
                ]
             }
@@ -465,7 +472,14 @@ loja4: new GameObject({
             
             {
                events:[
-                  {type:"textMessage", text:"Caçar Minhoca"},
+                  {
+                  type:"interactionBox", 
+                  text:"Pegar minhoca",
+                  id:"minhoca",
+                  inventoryObject: new InventoryObject({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
 
                ]
             }

@@ -54,12 +54,13 @@ class Pescaria {
 function displayRandomImage() {
     const uniqueSpritePaths = [...new Set([
         '/image/peixe/peixe1.png',
-        '/image/peixe/peixe2.png',
         '/image/peixe/peixe5.png',
+        '/image/peixe/peixe10.png',
         '/image/peixe/peixe25.png',
         '/image/peixe/peixe50.png',
         '/image/peixe/peixe100.png',
-        '/image/peixe/peixe1000.png',
+        '/image/peixe/peixe200.png',
+        '/image/peixe/peixe500.png',
     ])];
     
     // Create Fish objects using unique sprite paths
