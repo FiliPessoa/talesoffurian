@@ -131,11 +131,17 @@ class OverWorldEvent{
         resolve();
     }
 
-    inventory(resolve) {
-        const inventario = new Inventario({
+    storage(resolve) {
+        const storage = new Storage({
             onComplete: () => resolve()
         })
-        inventario.init( document.querySelector(".game-container"))
+        storage.init( document.querySelector(".game-container"))
+    }
+    inventory(resolve) {
+        const inventory = new Inventory({
+            onComplete: () => resolve()
+        })
+        inventory.init( document.querySelector(".game-container"))
     }
     
 

@@ -1,4 +1,4 @@
-class Inventario{
+class Storage{
     constructor({ text, onComplete }) {
         this.text = text;
         this.onComplete = onComplete;
@@ -13,15 +13,16 @@ class Inventario{
         
         
        
-        <img width="50" height="50"id="randomImage" src="/image/tools/bottle.png" alt="">
+        
         <img width="50" height="50"id="randomImage" src="/image/peixe/moeda.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/peixe1.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe2.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/peixe5.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe10.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/peixe25.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/peixe50.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/peixe100.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe1000.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe200.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe500.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/bud.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/tools/cachimbo.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/flor.png" alt="">
@@ -38,7 +39,9 @@ class Inventario{
         <img width="50" height="50"id="randomImage" src="/image/tools/pa.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/tools/faca.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/tools/vara.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/peixe/worm.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/peixe/pergaminho.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/tools/bottle.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/bambu.png" alt="">
          
        

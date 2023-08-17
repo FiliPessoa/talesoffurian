@@ -180,13 +180,49 @@ window.OverworldMaps = {
             
         }),
         lovetree1: new GameObject({
-         x:1353-utils.withGrid(51),
+         x:1353-utils.withGrid(64),
          y:1230+utils.withGrid(-26),
          selectionHeight:280,
 selectionWidth:300,
 height:60,
 width:70,
          src:"/image/objects/lovetree.png"
+      }),
+      wisetree1: new GameObject({
+         x:utils.withGrid(76), 
+                y:utils.withGrid(87),  
+         selectionHeight:280,
+selectionWidth:320,
+height:60,
+width:70,
+         src:"/image/objects/wisetree.png"
+      }),
+      spirittree1: new GameObject({
+         x:utils.withGrid(48), 
+         y:utils.withGrid(91),   
+         selectionHeight:280,
+selectionWidth:300,
+height:120,
+width:120,
+         src:"/image/objects/spiritree.png"
+      }),
+      herotree1: new GameObject({
+         x:utils.withGrid(15), 
+         y:utils.withGrid(80),   
+         selectionHeight:280,
+selectionWidth:300,
+height:160,
+width:160,
+         src:"/image/objects/herotree.png"
+      }),
+      strongtree1: new GameObject({
+         x:utils.withGrid(66), 
+         y:utils.withGrid(27),    
+         selectionHeight:280,
+selectionWidth:300,
+height:160,
+width:170,
+         src:"/image/objects/strongtree.png"
       }),
                 guitar: new GameObject({
                   x:utils.withGrid(90)+6,
@@ -197,6 +233,87 @@ width:70,
                 width:38,
                 src:"/image/instrument/violao2.png"
              }),
+             guitar2: new GameObject({
+               x:utils.withGrid(86)+6,
+               y:utils.withGrid(56)+2,
+             selectionHeight:68,
+             selectionWidth:232,
+             height:12,
+             width:38,
+             src:"/image/instrument/guitar1.png"
+          }),
+          guitar3: new GameObject({
+            x:utils.withGrid(82)+6,
+            y:utils.withGrid(56)+2,
+          selectionHeight:68,
+          selectionWidth:232,
+          height:12,
+          width:38,
+          src:"/image/instrument/guitar2.png"
+       }),
+       guitar4: new GameObject({
+         x:utils.withGrid(78)+6,
+         y:utils.withGrid(56)+2,
+       selectionHeight:68,
+       selectionWidth:232,
+       height:12,
+       width:38,
+       src:"/image/instrument/guitar3.png"
+    }),
+    tambor: new GameObject({
+      x:utils.withGrid(80)+6,
+      y:utils.withGrid(51)+2,
+      selectionHeight:152,
+      selectionWidth:185,
+      height:25,
+      width:30,
+      src:"/image/instrument/tambor.png"
+   }),
+   bateria: new GameObject({
+      x:utils.withGrid(88)+8,
+      y:utils.withGrid(50)+6,
+      selectionHeight:152,
+      selectionWidth:185,
+      height:40,
+      width:55,
+      src:"/image/instrument/drums.png"
+   }),
+    loja1: new GameObject({
+      x:utils.withGrid(78)-1,
+      y:utils.withGrid(59)+10,
+    selectionHeight:205,
+    selectionWidth:235,
+    height:40,
+    width:51,
+    src:"/image/instrument/mesa2.png"
+ }),
+ loja2: new GameObject({
+   x:utils.withGrid(82)-1,
+   y:utils.withGrid(59)+10,
+ selectionHeight:205,
+ selectionWidth:235,
+ height:40,
+ width:51,
+ src:"/image/instrument/mesa.png"
+}),
+loja3: new GameObject({
+   x:utils.withGrid(86)-1,
+   y:utils.withGrid(59)+10,
+ selectionHeight:205,
+ selectionWidth:235,
+ height:40,
+ width:51,
+ src:"/image/instrument/mesa3.png"
+}),
+loja4: new GameObject({
+   x:utils.withGrid(90)-1,
+   y:utils.withGrid(59)+10,
+ selectionHeight:205,
+ selectionWidth:235,
+ height:40,
+ width:51,
+ src:"/image/instrument/mesa4.png"
+}),
             passaro: new GameObject({
                x:utils.withGrid(104),
                 y:utils.withGrid(45),
@@ -216,11 +333,9 @@ width:70,
                src:"/image/objects/peixe.png"
             }),
             hero: new Person({
-               isPlayerControlled: true,
-               // x:utils.withGrid(101), 91,76
-               // y:utils.withGrid(40),     
-                x:utils.withGrid(29), 
-                y:utils.withGrid(50),                
+               isPlayerControlled: true,   
+                x:utils.withGrid(82), 
+                y:utils.withGrid(65),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -231,15 +346,7 @@ width:70,
                 width:100,
                 src:"/image/objects/barco.png"
              }),
-             barco1: new GameObject({
-               x:1353-utils.withGrid(34),
-               y:1220+utils.withGrid(-23),
-               selectionHeight:36,
-               selectionWidth:53,
-               height:60,
-               width:100,
-               src:"/image/objects/barco.png"
-            }),
+           
             lovetree: new GameObject({
                x:utils.withGrid(50),
                y:utils.withGrid(50),
@@ -251,8 +358,17 @@ width:70,
             }),
             
             fogueira: new GameObject({
-               x:1353-utils.withGrid(33),
-               y:1230+utils.withGrid(-10),
+               x:1360-utils.withGrid(34),
+               y:1220+utils.withGrid(-10),
+               selectionHeight:280,
+      selectionWidth:219,
+      height:60,
+      width:40,
+               src:"/image/objects/fogueira.png"
+            }),
+            fogueira2: new GameObject({
+               x:1353-utils.withGrid(45),
+               y:1230+utils.withGrid(46),
                selectionHeight:280,
       selectionWidth:219,
       height:60,
@@ -260,8 +376,8 @@ width:70,
                src:"/image/objects/fogueira.png"
             }),
              vara: new GameObject({
-                x:1415-utils.withGrid(6),
-                y:1205+utils.withGrid(15),
+                x:utils.withGrid(35),
+                y:utils.withGrid(60),
                 selectionHeight:183,
                 selectionWidth:131,
                 height:50,
@@ -312,7 +428,8 @@ width:70,
             
             {
                events:[
-                  {type:"pescaria", text:"Pescar"},
+                  {type:"changeMap", map:"Lake"},
+
 
                ]
             }
@@ -321,7 +438,7 @@ width:70,
             
             {
                events:[
-                  {type:"pescaria", text:"Pescar"},
+                  {type:"changeMap", map:"Lake"},
 
                ]
             }
@@ -331,6 +448,24 @@ width:70,
             {
                events:[
                   {type:"bolsa", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(23,51)] : [
+            
+            {
+               events:[
+                  {type:"textMessage", text:"Pegar Fruta"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(33,51)] : [
+            
+            {
+               events:[
+                  {type:"textMessage", text:"Caçar Minhoca"},
 
                ]
             }
@@ -353,7 +488,17 @@ width:70,
  
                 ]
              }
-          ]
+          ],
+          [utils.asGridCoord(29,55)] : [
+            {
+               events:[
+                  {type:"inventory", map:"Church"},
+                 
+
+               ]
+            }
+         ]
+          
           
  
          },
@@ -516,7 +661,7 @@ width:70,
            selectionWidth:111,
            height:50,
            width:21,
-           src:"/image/objects/planta4.png"
+           src:"/image/objects/planta5.png"
         }),
         
         violao: new GameObject({
@@ -801,20 +946,9 @@ width:70,
       upperSrc: "",
       gameObjects:{
          
-         
-     caixote4: new GameObject({
-      x:216+62+utils.withGrid(-4),
-      y:142-12+utils.withGrid(11),
-      selectionHeight:241,
-      selectionWidth:113,
-      height:50,
-      width:21,
-      src:"/image/objects/caixote.png"
-   }),
-  
-   guitar: new GameObject({
+     guitar: new GameObject({
       x:260+utils.withGrid(-4),
-      y:215+utils.withGrid(2),
+      y:215+utils.withGrid(7),
     selectionHeight:68,
     selectionWidth:232,
     height:12,
@@ -831,6 +965,7 @@ armario1: new GameObject({
       width:60,
       src:"/image/objects/estante.png"
    }),
+   
    armario12: new GameObject({
       x:200+utils.withGrid(-10),
       y:283-15+utils.withGrid(7),
@@ -860,6 +995,7 @@ armario1: new GameObject({
       width:20,
       src:"/image/objects/caixa.png"
    }),
+  
    escrivainha1: new GameObject({
       x:181+utils.withGrid(-12),
       y:279-15+utils.withGrid(-9),
@@ -887,19 +1023,55 @@ armario1: new GameObject({
       width:82,
       src:"/image/objects/bancada1.png"
    }),
+   mesa: new GameObject({
+      x:200-utils.withGrid(1),
+      y:270-utils.withGrid(2),
+      selectionHeight:130,
+      selectionWidth:219,
+      height:32,
+      width:55,
+      src:"/image/objects/mesa.png"
+   }),
+   piano: new GameObject({
+      x:255+utils.withGrid(-4),
+      y:255+utils.withGrid(-1),
+      selectionHeight:50,
+      selectionWidth:137,
+      height:14,
+      width:40,
+      src:"/image/objects/piano.png"
+   }),
+   // caixote4: new GameObject({
+   //    x:216+62+utils.withGrid(-6),
+   //    y:142-12,
+   //    selectionHeight:241,
+   //    selectionWidth:113,
+   //    height:50,
+   //    width:21,
+   //    src:"/image/objects/caixote.png"
+   // }),
+   // planta4: new GameObject({
+   //    x:216+62+utils.withGrid(-6),
+   //    y:142-12,
+   //    selectionHeight:241,
+   //    selectionWidth:111,
+   //    height:50,
+   //    width:21,
+   //    src:"/image/objects/planta4.png"
+   // }),
    hero: new Person({
       isPlayerControlled: true,
       x:utils.withGrid(8),
       y:utils.withGrid(25),
   }),   
   tambor: new GameObject({
-   x:180+utils.withGrid(-8),
-   y:217+utils.withGrid(7),
+   x:183+utils.withGrid(-9),
+   y:200+utils.withGrid(7),
    selectionHeight:152,
    selectionWidth:185,
-   height:25,
-   width:30,
-   src:"/image/instrument/tambor.png"
+   height:40,
+   width:55,
+   src:"/image/instrument/drums.png"
 }),
 bottle: new GameObject({
    x:utils.withGrid(4),
@@ -910,60 +1082,17 @@ bottle: new GameObject({
    width:10,
    src:"/image/objects/bottle.png"
 }),
-bud: new GameObject({
-   x:212-utils.withGrid(6),
-   y:250-utils.withGrid(8),
-   selectionHeight:163,
-   selectionWidth:112,
-   height:10,
-   width:5,
-   src:"/image/objects/bud.png"
-}),
-cachimbo: new GameObject({
-   x:204-utils.withGrid(6),
-   y:261-utils.withGrid(8),
-   selectionHeight:38,
-   selectionWidth:132,
-   height:3,
-   width:9,
-   src:"/image/objects/cachimbo.png"
-}),
+
 tarot: new GameObject({
-  x:220-utils.withGrid(6),
-  y:256-utils.withGrid(8),
-  selectionHeight:186,
-  selectionWidth:198,
-  height:7,
-  width:6,
-  src:"/image/objects/tarot.png"
+  x:utils.withGrid(6),
+  y:utils.withGrid(8),
+  selectionHeight:512,
+  selectionWidth:512,
+  height:50,
+  width:50,
+  src:"/image/peixe/peixe1.png"
 }),
-moeda: new GameObject({
-   x:231-utils.withGrid(6),
-   y:260-utils.withGrid(8),
-   selectionHeight:100,
-   selectionWidth:100,
-   height:10,
-   width:10,
-   src:"/image/objects/moeda.png"
-}),
-moeda2: new GameObject({
-  x:228-utils.withGrid(6),
-  y:255-utils.withGrid(8),
-  selectionHeight:100,
-  selectionWidth:100,
-  height:10,
-  width:10,
-  src:"/image/objects/moeda.png"
-}),
-moeda3: new GameObject({
-  x:234-utils.withGrid(6),
-  y:255-utils.withGrid(8),
-  selectionHeight:100,
-  selectionWidth:100,
-  height:10,
-  width:10,
-  src:"/image/objects/moeda.png"
-}),
+
 },
      cutsceneSpaces:{
       
@@ -980,6 +1109,14 @@ moeda3: new GameObject({
           }
        ],
        [utils.asGridCoord(12,24)] : [
+         {
+            events:[
+               {type:"storage", text:"inventario"},
+
+            ]
+         }
+      ],
+      [utils.asGridCoord(13,24)] : [
          {
             events:[
                {type:"inventory", text:"inventario"},
@@ -1038,5 +1175,207 @@ moeda3: new GameObject({
 
       },
   },
+  Lake: {
+      
+   lowerSrc: "/image/maps/lake.png",
+   
+   upperSrc: "",
+   gameObjects:{
+      peixe1: new GameObject({
+         x:utils.withGrid(8),
+         y:utils.withGrid(10),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:60,
+         width:50,
+         src:"/image/objects/peixe1.png"
+      }),
+      peixe1v: new GameObject({
+         x:utils.withGrid(15),
+         y:utils.withGrid(15),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:60,
+         width:50,
+         src:"/image/objects/peixe1v.png"
+      }),
+      peixe2: new GameObject({
+         x:utils.withGrid(17),
+         y:utils.withGrid(12),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:70,
+         width:50,
+         src:"/image/objects/peixe5.png"
+      }),
+      peixe2v: new GameObject({
+         x:utils.withGrid(2),
+         y:utils.withGrid(12),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:70,
+         width:50,
+         src:"/image/objects/peixe5v.png"
+      }),
+      peixe3: new GameObject({
+         x:utils.withGrid(-5),
+         y:utils.withGrid(12),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:70,
+         width:60,
+         src:"/image/objects/peixe10.png"
+      }),
+      peixe3v: new GameObject({
+         x:utils.withGrid(18),
+         y:utils.withGrid(15),
+         
+         selectionHeight:280,
+         selectionWidth:219,
+         height:70,
+         width:60,
+         src:"/image/objects/peixe10v.png"
+      }),
+      peixe4: new GameObject({
+         x:utils.withGrid(5),
+         y:utils.withGrid(21),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:70,
+         src:"/image/objects/peixe25.png"
+      }),
+      peixe4v: new GameObject({
+         x:utils.withGrid(9),
+         y:utils.withGrid(19),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:70,
+         src:"/image/objects/peixe25v.png"
+      }),
+      peixe5: new GameObject({
+         x:utils.withGrid(10),
+         y:utils.withGrid(13),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:60,
+         src:"/image/objects/peixe100.png"
+      }),
+      peixe5v: new GameObject({
+         x:utils.withGrid(3),
+         y:utils.withGrid(17),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:60,
+         src:"/image/objects/peixe100v.png"
+      }),
+      peixe6v: new GameObject({
+         x:utils.withGrid(16),
+         y:utils.withGrid(19),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:50,
+         width:50,
+         src:"/image/objects/peixe200v.png"
+      }),
+      peixe6: new GameObject({
+         x:utils.withGrid(-3),
+         y:utils.withGrid(17),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:50,
+         width:50,
+         src:"/image/objects/peixe200.png"
+      }),
+      peixe7: new GameObject({
+         x:utils.withGrid(0),
+         y:utils.withGrid(15),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:60,
+         src:"/image/objects/peixe50.png"
+      }),
+      peixe7v: new GameObject({
+         x:utils.withGrid(13),
+         y:utils.withGrid(11),
+         
+         selectionHeight:280,
+         selectionWidth:280,
+         height:60,
+         width:60,
+         src:"/image/objects/peixe50v.png"
+      }),
+      peixe8: new GameObject({
+         x:utils.withGrid(-5),
+         y:utils.withGrid(20),
+         
+         selectionHeight:280,
+         selectionWidth:400,
+         height:60,
+         width:95,
+         src:"/image/objects/peixe500.png"
+      }),
+      peixe8v: new GameObject({
+         x:utils.withGrid(15),
+         y:utils.withGrid(22),
+         
+         selectionHeight:280,
+         selectionWidth:400,
+         height:60,
+         width:95,
+         src:"/image/objects/peixe500v.png"
+      }),
+      // peixe9: new GameObject({
+      //    x:utils.withGrid(-7),
+      //    y:utils.withGrid(25)-10,
+         
+      //    selectionHeight:280,
+      //    selectionWidth:400,
+      //    height:120,
+      //    width:200,
+      //    src:"/image/objects/peixe1000.png"
+      // }),
+      // peixe9v: new GameObject({
+      //    x:utils.withGrid(9),
+      //    y:utils.withGrid(27)-10,
+         
+      //    selectionHeight:280,
+      //    selectionWidth:400,
+      //    height:120,
+      //    width:200,
+      //    src:"/image/objects/peixe1000v.png"
+      // }),
+      hero: new Person({
+         isPlayerControlled: true,
+         x:utils.withGrid(7),
+         y:utils.withGrid(15),
+     }),   
+   },cutsceneSpaces:{  [utils.asGridCoord(7,7)] : [
+      {
+         events:[
+            {type:"changeMap", map:"World"},
+           
+
+         ]
+         
+      }
+   ],}},
+   
     
 }
