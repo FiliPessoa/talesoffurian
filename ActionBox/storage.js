@@ -31,7 +31,7 @@ class Storage{
         <img width="50" height="50"id="randomImage" src="/image/plant/semente.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/folha.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/casca.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/tarot.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/plant/fruto3.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/chave/chave1.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/chave/chave2.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/chave/chave3.png" alt="">
@@ -43,6 +43,7 @@ class Storage{
         <img width="50" height="50"id="randomImage" src="/image/peixe/pergaminho.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/tools/bottle.png" alt="">
         <img width="50" height="50"id="randomImage" src="/image/plant/bambu.png" alt="">
+        <img width="50" height="50"id="randomImage" src="/image/peixe/tarot.png" alt="">
          
        
     
@@ -71,19 +72,6 @@ class Storage{
           '/image/peixe/peixe1.png',
           '/image/peixe/peixe1.png',
           '/image/peixe/peixe1.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
-          '/image/peixe/peixe2.png',
           '/image/peixe/peixe5.png',
           '/image/peixe/peixe5.png',
           '/image/peixe/peixe5.png',
@@ -96,6 +84,19 @@ class Storage{
           '/image/peixe/peixe5.png',
           '/image/peixe/peixe5.png',
           '/image/peixe/peixe5.png',
+          '/image/peixe/peixe5.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
+          '/image/peixe/peixe10.png',
           '/image/peixe/peixe25.png',
           '/image/peixe/peixe25.png',
           '/image/peixe/peixe25.png',
@@ -111,10 +112,15 @@ class Storage{
           '/image/peixe/peixe50.png',
           '/image/peixe/peixe50.png',
           '/image/peixe/peixe50.png',
-          '/image/peixe/peixe100.png',
-          '/image/peixe/peixe100.png',
-          '/image/peixe/peixe100.png',
-          '/image/peixe/peixe1000.png',
+          '/image/peixe/peix100.png',
+          '/image/peixe/peix100.png',
+          '/image/peixe/peix100.png',
+          '/image/peixe/peix100.png',
+          '/image/peixe/peix100.png',
+          '/image/peixe/peixe200.png',
+          '/image/peixe/peixe200.png',
+          '/image/peixe/peixe200.png',
+          '/image/peixe/peixe500.png',
                 ]
                
            

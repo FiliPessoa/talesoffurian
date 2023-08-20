@@ -48,13 +48,14 @@ class OverWorldEvent{
             const obj = this.map.gameObjects[this.event.faceHero];
             obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
         }
-        
+       
         const interactionBox = new InteractionBox({
             text: this.event.text,
             id: this.event.id,
             inventoryObject: this.event.inventoryObject,
             onComplete: () => resolve()
         })
+        
         interactionBox.init( document.querySelector(".game-container"))
     }
     textMessage(resolve) {
@@ -114,20 +115,30 @@ class OverWorldEvent{
         })
         violao.init( document.querySelector(".game-container"))
     }
+    
     pescaria(resolve) {
-        let hasWorm = false;
+        let hasIsca = false;
         let hasVara = false;
         if(inv.length > 0) {
         inv.forEach((object) => {
             if (object.id == 'minhoca') {
-                hasWorm = true;
+                hasIsca = true;
+            }
+            if (object.id == 'peixe1') {
+                hasIsca = true;
+            }
+            if (object.id == 'peixe5') {
+                hasIsca = true;
+            }
+            if (object.id == 'peixe50') {
+                hasIsca = true;
             }
             if (object.id == 'vara') {
                 hasVara = true;
             }
         })
         
-        if (hasWorm == true && hasVara == true) {
+        if (hasIsca == true && hasVara == true) {
         const pescar = new Pescaria({
             onComplete: () => resolve()
         });
@@ -144,13 +155,19 @@ class OverWorldEvent{
         };
     
 
-    bolsa(resolve) {
+    tesouro(resolve) {
         const invper = new InventarioPersonagem({
             onComplete: () => resolve()
         })
         invper.init( document.querySelector(".game-container"))
     }
-    InventarioPersonagem
+    loja1(resolve) {
+        const loja1 = new Loja1({
+            onComplete: () => resolve()
+        })
+        loja1.init( document.querySelector(".game-container"))
+    }
+   
     tarot(resolve) {
         const cartas = new Tarot({
             onComplete: () => resolve()

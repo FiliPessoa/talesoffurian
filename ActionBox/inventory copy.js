@@ -17,12 +17,12 @@ class Inventory{
 
   this.element.innerHTML = imagesHtml;
         }
-        // var imageButton = document.getElementById("inventaryImage");
-        // let hasVara = false;
-        // // Add a click event listener to the image
-        // imageButton.addEventListener("click", function() {
-        //     hasVara=true
-        // });
+        var imageButton = document.getElementById("inventaryImage");
+        let hasVara = false;
+        // Add a click event listener to the image
+        imageButton.addEventListener("click", function() {
+            hasVara=true
+        });
         this.actionListener = new KeyPressListener("Enter", () => {
            this.actionListener.unbind();
            this.done();

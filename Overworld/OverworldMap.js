@@ -179,6 +179,15 @@ window.OverworldMaps = {
             ]
             
         }),
+      //   planta5: new GameObject({
+      //    x:utils.withGrid(35),
+      //    y:utils.withGrid(48),
+      //    selectionHeight:241,
+      //    selectionWidth:111,
+      //    height:100,
+      //    width:40,
+      //    src:"/image/objects/planta5.png"
+      // }),
         lovetree1: new GameObject({
          x:1353-utils.withGrid(64),
          y:1230+utils.withGrid(-26),
@@ -188,9 +197,18 @@ height:60,
 width:70,
          src:"/image/objects/lovetree.png"
       }),
-      wisetree1: new GameObject({
-         x:utils.withGrid(76), 
-                y:utils.withGrid(87),  
+      winetree1: new GameObject({
+         x:utils.withGrid(109), 
+         y:utils.withGrid(46),    
+         selectionHeight:280,
+selectionWidth:320,
+height:60,
+width:70,
+         src:"/image/objects/winetree.png"
+      }),
+      wisetree: new GameObject({
+         x:utils.withGrid(37), 
+                y:utils.withGrid(76),  
          selectionHeight:280,
 selectionWidth:320,
 height:60,
@@ -199,7 +217,7 @@ width:70,
       }),
       spirittree1: new GameObject({
          x:utils.withGrid(48), 
-         y:utils.withGrid(91),   
+         y:utils.withGrid(91)+2,   
          selectionHeight:280,
 selectionWidth:300,
 height:120,
@@ -314,6 +332,7 @@ loja4: new GameObject({
  width:51,
  src:"/image/instrument/mesa4.png"
 }),
+
             passaro: new GameObject({
                x:utils.withGrid(104),
                 y:utils.withGrid(45),
@@ -323,19 +342,11 @@ loja4: new GameObject({
                width:12,
                src:"/image/objects/passaro.png"
             }),
-            peixe: new GameObject({
-               x:1426-utils.withGrid(7),
-                y:1205+utils.withGrid(33),
-               selectionHeight:187,
-               selectionWidth:94,
-               height:12,
-               width:7,
-               src:"/image/objects/peixe.png"
-            }),
+         
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(35), 
-                y:utils.withGrid(60),                
+                x:utils.withGrid(80), 
+                y:utils.withGrid(59),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -424,7 +435,7 @@ loja4: new GameObject({
                ]
             }
          ],
-         [utils.asGridCoord(50,57)] : [
+         [utils.asGridCoord(111,96)] : [
             
             {
                events:[
@@ -434,11 +445,22 @@ loja4: new GameObject({
                ]
             }
          ],
+         [utils.asGridCoord(50,57)] : [
+            
+            {
+               events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ], 
+          
+        
          [utils.asGridCoord(51,57)] : [
             
             {
                events:[
-                  {type:"changeMap", map:"Lake"},
+                  {type:"pescaria", text:"Pescar"},
 
                ]
             }
@@ -447,7 +469,82 @@ loja4: new GameObject({
             
             {
                events:[
-                  {type:"bolsa", text:"Tesouro"},
+                  {type:"tesouro", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(80,59)] : [
+            
+            {
+               events:[
+                  {type:"loja1", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(79,59)] : [
+            
+            {
+               events:[
+                  {type:"loja1", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(78,59)] : [
+            
+            {
+               events:[
+                  {type:"loja1", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(110,46)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruto3",
+                  id:"fruto bendito",
+                  inventoryObject: new Isca({
+                     id: "fruto bendito",
+                     src: '/image/plant/fruto3.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(21,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruta",
+                  id:"fruto proibido",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/fruto.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(22,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruta",
+                  id:"fruto proibido",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/fruto.png',  
+                 })},
 
                ]
             }
@@ -458,7 +555,7 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Pegar Fruta",
+                  text:"Fruta",
                   id:"fruto proibido",
                   inventoryObject: new Isca({
                      id: "fruto proibido",
@@ -468,13 +565,93 @@ loja4: new GameObject({
                ]
             }
          ], 
-         [utils.asGridCoord(35,60)] : [
+         [utils.asGridCoord(24,51)] : [
             
             {
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Pegar vara",
+                  text:"Fruta",
+                  id:"fruto proibido",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/fruto.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(38,76)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Folha",
+                  id:"folha",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/folha.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(39,76)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Folha",
+                  id:"folha",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/folha.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(40,76)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Folha",
+                  id:"folha",
+                  inventoryObject: new Isca({
+                     id: "fruto proibido",
+                     src: '/image/plant/folha.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(34,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Vara de Pescar",
+                  id:"vara",
+                  inventoryObject: new Isca({
+                     id: "vara",
+                     src: '/image/tools/vara.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(36,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Vara de Pescar",
                   id:"vara",
                   inventoryObject: new Isca({
                      id: "vara",
@@ -490,7 +667,7 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Pegar minhoca",
+                  text:"Minhoca",
                   id:"minhoca",
                   inventoryObject: new Isca({
                      id: "minhoca",
@@ -500,6 +677,470 @@ loja4: new GameObject({
                ]
             }
          ], 
+         [utils.asGridCoord(34,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(35,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(36,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(37,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(38,51)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(33,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(34,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(35,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(36,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(37,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(38,50)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(33,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(34,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(35,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(36,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(37,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(38,49)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(33,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(34,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(35,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(36,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(37,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(38,48)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Minhoca",
+                  id:"minhoca",
+                  inventoryObject: new Isca({
+                     id: "minhoca",
+                     src: '/image/peixe/worm.png',  
+                 })},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(71,33)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Casca",
+                  id:"casca",
+                  inventoryObject: new Isca({
+                     id: "casca",
+                     src: '/image/plant/casca.png',  
+                 })},
+
+               ]
+            }
+         ],  
+         [utils.asGridCoord(72,33)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Casca",
+                  id:"casca",
+                  inventoryObject: new Isca({
+                     id: "casca",
+                     src: '/image/plant/casca.png',  
+                 })},
+
+               ]
+            }
+         ],  
+         [utils.asGridCoord(51,95)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Flor",
+                  id:"flor",
+                  inventoryObject: new Isca({
+                     id: "flor",
+                     src: '/image/plant/flor.png',  
+                 })},
+
+               ]
+            }
+         ],  
+         [utils.asGridCoord(52,95)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Flor",
+                  id:"flor",
+                  inventoryObject: new Isca({
+                     id: "flor",
+                     src: '/image/plant/flor.png',  
+                 })},
+
+               ]
+            }
+         ],  
+         [utils.asGridCoord(19,86)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruta 2",
+                  id:"fruta2",
+                  inventoryObject: new Isca({
+                     id: "fruta2",
+                     src: '/image/plant/fruto2.png',  
+                 })},
+
+               ]
+            }
+         ],  
+         [utils.asGridCoord(20,86)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruta 2",
+                  id:"fruta2",
+                  inventoryObject: new Isca({
+                     id: "fruta2",
+                     src: '/image/plant/fruto2.png',  
+                 })},
+
+               ]
+            }
+         ],  
           [utils.asGridCoord(29,46)] : [
              {
                 events:[
@@ -691,7 +1332,7 @@ loja4: new GameObject({
            selectionWidth:111,
            height:50,
            width:21,
-           src:"/image/objects/planta5.png"
+           src:"/image/objects/planta4.png"
         }),
         
         violao: new GameObject({
@@ -1054,12 +1695,12 @@ armario1: new GameObject({
       src:"/image/objects/bancada1.png"
    }),
    mesa: new GameObject({
-      x:200-utils.withGrid(1),
-      y:270-utils.withGrid(2),
+      x:200-utils.withGrid(0),
+      y:271-utils.withGrid(2),
       selectionHeight:130,
       selectionWidth:219,
-      height:32,
-      width:55,
+      height:28,
+      width:25,
       src:"/image/objects/mesa.png"
    }),
    piano: new GameObject({
@@ -1189,6 +1830,36 @@ tarot: new GameObject({
                {type:"textMessage", text:"Vá Para o Norte! Quando chegar onde o mar e o rio se encontram, encontrará um tesouro"},
                //{type:"walk",who:"hero",direction:"left"},
                //{type:"changeMap", map:"World"},
+               {
+                  type:"interactionBox", 
+                  text:"bottle",
+                  id:"bottle",
+                  inventoryObject: new Isca({
+                     id: "bottle",
+                     src: '/image/tools/bottlePerg.png',  
+                 },
+                 
+                 )},
+               {
+                  type:"interactionBox", 
+                  text:"bottle",
+                  id:"bottle",
+                  inventoryObject: new Isca({
+                     id: "bottle",
+                     src: '/image/tools/bottle.png',  
+                 },
+                 
+                 )},
+                 
+                 {
+                  type:"interactionBox", 
+                  text:"pergaminho",
+                  id:"pergaminho",
+                  inventoryObject: new Isca({
+                     id: "pergaminho",
+                     src: '/image/peixe/pergaminho.png',  
+                 },
+                 )},
 
             ]
          }
