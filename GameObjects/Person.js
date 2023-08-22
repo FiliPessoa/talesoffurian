@@ -64,6 +64,11 @@ startBehavior(state,behavior){
             this.movingProgressRemaining -= 1;
 
             if (this.movingProgressRemaining === 0) {
+            // Client-side
+            socket.emit('playerMove', { playerID: 1, x: 100, y: 200 });
+            socket.on('playerMove', (data) => {
+            // Update the game state with the received data
+            });
             utils.emitEvent("PersonWalkingComplete",{
                 whoId:this.id
             })

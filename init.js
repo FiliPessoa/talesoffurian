@@ -1,4 +1,7 @@
 let inv = [];
+const socket = io.connect('http://127.0.0.1:5501');
+
+// Handle custom events here
 
 (function(){
     const overworld = new Overworld({

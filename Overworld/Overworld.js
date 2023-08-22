@@ -7,6 +7,7 @@ class Overworld{
         
 
     }
+    
     startGameLoop() {
         const step = () => {
             
