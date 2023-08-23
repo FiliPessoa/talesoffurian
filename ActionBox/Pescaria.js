@@ -151,43 +151,91 @@ function displayRandomImage() {
     const nameHtml = document.getElementById("nome");
     const typeHtml = document.getElementById("tipo");
     const priceHtml = document.getElementById("preco");
+
     randomImage.src = randomImageURL;
 
-
+    
     nameHtml.innerHTML = randomFish.name;
     typeHtml.innerHTML = randomFish.type;
     priceHtml.innerHTML = randomFish.price;
+   
 
     if(inv.length > 13){
              
         const textM = new TextMessage({
-            text: 'sem minhoca',
+            text: 'Inventory Full',
             onComplete: () => resolve()
         })
-      
+ 
        
     }
     else{
  
-
-    inv.push(new Fish({
-        id: "peixe1",
-        src:randomFish.sprite.image.src,  
-    }))};
+        //  inv.forEach((object) => {
+        //     if (object.id == 'minhoca') {
+        //         hasMinhoca = true;
+        //     }
+        //     if (object.id == 'fruto proibido') {
+        //         hasFruta = true;
+        //     }
+        //     if (object.id == 'peixe1') {
+        //         hasPeixe1 = true;
+        //     }
+        //     if (object.id == 'peixe5') {
+        //         hasPeixe5 = true;
+        //     }
+        //     if (object.id == 'peixe50') {
+        //         hasPeixe50 = true;
+        //     }}),
+        //      console.log(nameHtml)
+        //   if(nameHtml=="peixe1"){
+        //     console.log("peixe1")
+        //     //  if(hasMinhoca=true){  inv.push(new Fish({
+        //     //      id: "peixe",
+        //     //      src:randomFish.sprite.image.src,  
+        //     //  }))}
+        //     //  if(hasMinhoca=false){ this.done(); }
+        //   } 
+        setTimeout('', 5000);
+   inv.push(new Fish({
+    id: "peixe",
+    src:randomFish.sprite.image.src,  
+}))
     console.log('added item');
-    this.done();
-       
- 
+    this.done(); 
     
 }
-
-// Example of how to initialize the Pescaria class
-// const pescariaInstance = new Pescaria({
-//     text: "Example text",
-//     onComplete: function() {
-//         console.log("Done");
+// let hasMinhoca = false;
+// let hasVara = false;
+// let hasPeixe1 = false;
+// let hasPeixe5 = false;
+// let hasPeixe50 = false;
+// inv.forEach((object) => {
+//     if (object.id == 'minhoca') {
+//         hasMinhoca = true;
 //     }
-// });
-
-// const container = document.querySelector("#container");
-// pescariaInstance.init(container);
+//     if (object.id == 'fruit') {
+//         hasFruit = true;
+//     }
+//     if (object.id == 'peixe1') {
+//         hasPeixe1 = true;
+//     }
+//     if (object.id == 'peixe5') {
+//         hasPeixe5 = true;
+//     }
+//     if (object.id == 'peixe50') {
+//         hasPeixe50 = true;
+//     }
+//     if (object.id == 'vara') {
+//         hasVara = true;
+//     }
+//     console.log(hasMinhoca,hasPeixe1,hasPeixe5,hasPeixe50);
+// })
+// if (hasPeixe1 == true) {
+//     inv.push(new Fish({
+//         id: "peixe1",
+//         src:randomFish.sprite.image.src,  
+//     }))}
+//     if (hasPeixe1 == false) {
+//         this.done();
+        }

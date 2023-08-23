@@ -1,3 +1,4 @@
+let storage = [];
 class Storage{
     constructor({ text, onComplete }) {
         this.text = text;

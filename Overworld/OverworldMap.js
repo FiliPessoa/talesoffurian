@@ -345,8 +345,8 @@ loja4: new GameObject({
          
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(80), 
-                y:utils.withGrid(59),                
+                x:utils.withGrid(29), 
+                y:utils.withGrid(55),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -399,6 +399,22 @@ loja4: new GameObject({
        },
        cutsceneSpaces:{
          // [utils.asGridCoord(14,25)]
+         [utils.asGridCoord(29,55)] : [
+            
+            {
+               events:[
+                  {
+                     type: "interactionBox", 
+                     text:"Moeda",
+                     inventoryObject: new Moeda(
+
+                     )
+                 },
+
+
+               ]
+            }
+         ],
           [utils.asGridCoord(85,76)] : [
             
              {
@@ -408,6 +424,7 @@ loja4: new GameObject({
                 ]
              }
           ],
+
           [utils.asGridCoord(85,77)] : [
             
             {
@@ -449,8 +466,47 @@ loja4: new GameObject({
             
             {
                events:[
-                  {type:"pescaria", text:"Pescar"},
-
+                  {
+                     type: "interactionBox", 
+                     text:"Peixe 1",
+                     inventoryObject: new Peixe1()
+                 },
+                 {
+                  type: "interactionBox", 
+                  text:"Peixe 5",
+                  inventoryObject: new Peixe5()
+              },
+              {
+               type: "interactionBox", 
+               text:"Peixe 10",
+               inventoryObject: new Peixe10()
+           },
+           {
+            type: "interactionBox", 
+            text:"Peixe 25",
+            inventoryObject: new Peixe25()
+        },
+        {
+         type: "interactionBox", 
+         text:"Peixe 50",
+         inventoryObject: new Peixe50()
+     },
+     {
+      type: "interactionBox", 
+      text:"Peixe 100",
+      inventoryObject: new Peixe100()
+  },
+   {
+      type: "interactionBox", 
+      text:"Peixe 200",
+      inventoryObject: new Peixe200()
+   },
+      {
+         type: "interactionBox", 
+         text:"Peixe 500",
+         inventoryObject: new Peixe500()
+     },
+  
                ]
             }
          ], 
@@ -474,15 +530,7 @@ loja4: new GameObject({
                ]
             }
          ], 
-         [utils.asGridCoord(80,59)] : [
-            
-            {
-               events:[
-                  {type:"loja1", text:"Tesouro"},
-
-               ]
-            }
-         ], 
+    
          [utils.asGridCoord(79,59)] : [
             
             {
@@ -492,11 +540,102 @@ loja4: new GameObject({
                ]
             }
          ], 
-         [utils.asGridCoord(78,59)] : [
+         [utils.asGridCoord(83,59)] : [
             
             {
                events:[
-                  {type:"loja1", text:"Tesouro"},
+                  {type:"loja2", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(87,59)] : [
+            
+            {
+               events:[
+                  {type:"loja3", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(91,59)] : [
+            
+            {
+               events:[
+                  {type:"loja4", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(99,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  inventoryObject: new Bambu()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(101,61)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  id:"bambu",
+                  inventoryObject: new Bambu()},
+
+               ]
+            }
+         ],  
+          [utils.asGridCoord(103,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  inventoryObject: new Bambu()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(105,59)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  inventoryObject: new Bambu()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(107,61)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  inventoryObject: new Bambu()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(109,60)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Bambu",
+                  inventoryObject: new Bambu()},
 
                ]
             }
@@ -508,11 +647,31 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Fruto3",
-                  id:"fruto bendito",
-                  inventoryObject: new Isca({
-                     id: "fruto bendito",
-                     src: '/image/plant/fruto3.png',  
-                 })},
+                  inventoryObject: new Fruto3()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(111,46)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruto3",
+                  inventoryObject: new Fruto3()},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(112,46)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Fruto3",
+                  inventoryObject: new Fruto3()},
 
                ]
             }
@@ -523,12 +682,8 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta",
-                  id:"fruto proibido",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/fruto.png',  
-                 })},
+                  text:"Fruto1",
+                  inventoryObject: new Fruto1()},
 
                ]
             }
@@ -539,12 +694,8 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta",
-                  id:"fruto proibido",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/fruto.png',  
-                 })},
+                  text:"Fruto1",
+                  inventoryObject: new Fruto1()},
 
                ]
             }
@@ -555,12 +706,8 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta",
-                  id:"fruto proibido",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/fruto.png',  
-                 })},
+                  text:"Fruto1",
+                  inventoryObject: new Fruto1()},
 
                ]
             }
@@ -571,12 +718,8 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta",
-                  id:"fruto proibido",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/fruto.png',  
-                 })},
+                  text:"Fruto1",
+                  inventoryObject: new Fruto1()},
 
                ]
             }
@@ -588,11 +731,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Folha",
-                  id:"folha",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/folha.png',  
-                 })},
+                  inventoryObject: new Folha()},
 
                ]
             }
@@ -604,11 +743,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Folha",
-                  id:"folha",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/folha.png',  
-                 })},
+                  inventoryObject: new Folha()},
 
                ]
             }
@@ -620,11 +755,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Folha",
-                  id:"folha",
-                  inventoryObject: new Isca({
-                     id: "fruto proibido",
-                     src: '/image/plant/folha.png',  
-                 })},
+                  inventoryObject: new Folha()},
 
                ]
             }
@@ -636,12 +767,8 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Vara de Pescar",
-                  id:"vara",
-                  inventoryObject: new Isca({
-                     id: "vara",
-                     src: '/image/tools/vara.png',  
-                 })},
-
+                  inventoryObject: new Vara(),
+                  }
                ]
             }
          ], 
@@ -667,7 +794,7 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Minhoca",
+                  text:"Pegar minhoca",
                   id:"minhoca",
                   inventoryObject: new Isca({
                      id: "minhoca",
@@ -684,11 +811,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -700,11 +823,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -716,11 +835,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -732,11 +847,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -748,11 +859,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -764,11 +871,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -780,11 +883,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -796,11 +895,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -812,11 +907,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -828,11 +919,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -844,11 +931,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -860,11 +943,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -876,11 +955,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -892,11 +967,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -908,11 +979,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -924,11 +991,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -940,11 +1003,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -956,11 +1015,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -972,11 +1027,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -988,11 +1039,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -1004,11 +1051,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -1020,11 +1063,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -1036,11 +1075,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -1052,11 +1087,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Casca",
-                  id:"casca",
-                  inventoryObject: new Isca({
-                     id: "casca",
-                     src: '/image/plant/casca.png',  
-                 })},
+                  inventoryObject: new Casca()},
 
                ]
             }
@@ -1068,11 +1099,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Casca",
-                  id:"casca",
-                  inventoryObject: new Isca({
-                     id: "casca",
-                     src: '/image/plant/casca.png',  
-                 })},
+                  inventoryObject: new Casca()},
 
                ]
             }
@@ -1084,11 +1111,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Flor",
-                  id:"flor",
-                  inventoryObject: new Isca({
-                     id: "flor",
-                     src: '/image/plant/flor.png',  
-                 })},
+                  inventoryObject: new Flor()},
 
                ]
             }
@@ -1100,11 +1123,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Flor",
-                  id:"flor",
-                  inventoryObject: new Isca({
-                     id: "flor",
-                     src: '/image/plant/flor.png',  
-                 })},
+                  inventoryObject: new Flor()},
 
                ]
             }
@@ -1116,11 +1135,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Fruta 2",
-                  id:"fruta2",
-                  inventoryObject: new Isca({
-                     id: "fruta2",
-                     src: '/image/plant/fruto2.png',  
-                 })},
+                  inventoryObject: new Fruto2()},
 
                ]
             }
@@ -1132,11 +1147,7 @@ loja4: new GameObject({
                   {
                   type:"interactionBox", 
                   text:"Fruta 2",
-                  id:"fruta2",
-                  inventoryObject: new Isca({
-                     id: "fruta2",
-                     src: '/image/plant/fruto2.png',  
-                 })},
+                  inventoryObject: new Fruto2()},
 
                ]
             }
@@ -1160,15 +1171,56 @@ loja4: new GameObject({
                 ]
              }
           ],
-          [utils.asGridCoord(29,55)] : [
+        
+         [utils.asGridCoord(79,55)] : [
             {
+           
                events:[
-                  {type:"inventory", map:"Church"},
-                 
+                  {
+                  type:"interactionBox", 
+                  text:"Misty Guitar",
+                  inventoryObject: new MistyGuitar()},
 
-               ]
+               ],
+            
             }
-         ]
+         ],
+         [utils.asGridCoord(83,55)] : [
+            {
+             
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Disty Guitar",
+                  inventoryObject: new DistyGuitar()},
+
+               ],
+            }
+         ],
+         [utils.asGridCoord(87,55)] : [
+            {
+             
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Busky Guitar",
+                  inventoryObject: new BuskyGuitar()},
+
+               ],
+            }
+         ],
+         [utils.asGridCoord(91,55)] : [
+            {
+             
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Traveler's Guitar",
+                  inventoryObject: new Violao()},
+
+               ],
+            }
+         ],
           
           
  
@@ -1860,6 +1912,7 @@ tarot: new GameObject({
                      src: '/image/peixe/pergaminho.png',  
                  },
                  )},
+              
 
             ]
          }

@@ -28,30 +28,8 @@ class Inventory{
            this.done();
         })
         
-                      
-    
-                    
-                    
-                    const peixes = [
-     
-                ]
-               
-               
-       
-
-
-        
-            
-                  
-             
-                        
-     //       pescar.addEventListener('click', function(){
-       //         let x = Math.floor(Math.random()*55);
-       // console.log(x);
-       // console.log(peixe[x]);
-     //   fish = new Image(64,64);
-      //  document.body.appendChild()
-                //    })
+          
+   
       }
     done() {
         this.element.remove();
@@ -68,4 +46,3 @@ class Inventory{
        
     }
 }
-//rgb(67, 153, 80);

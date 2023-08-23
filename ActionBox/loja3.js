@@ -1,4 +1,4 @@
-class InventarioPersonagem{
+class Loja3 {
     constructor({ text, onComplete }) {
         this.text = text;
         this.onComplete = onComplete;
@@ -10,27 +10,16 @@ class InventarioPersonagem{
         this.element.classList.add("InventoryPersonal");
 
         // Create instances of Peixe1 and add them to the loja2 array
-        let loja2 = [
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Chave1(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
+        let loja3 = [
+            new Pa(),
+            new Vara(),
+            new Faca(),
         ];
 
         // Add more instances as needed
 
         // Create an array of image elements based on the loja2 array
-        let imageElements = loja2.map((peixe) => {
+        let imageElements = loja3.map((peixe) => {
             return `<img width="50" height="50" src="${peixe.sprite.image.src}" alt="">`;
         });
 

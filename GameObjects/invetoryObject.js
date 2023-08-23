@@ -1,6 +1,7 @@
 class InventoryObject {
     constructor(config) {
         this.id = config.id;
+        this.text = config.text;
         this.isMounted = false;
         this.selectionHeight = 256;
         this.selectionWidth = 256;

@@ -124,6 +124,9 @@ class OverWorldEvent{
             if (object.id == 'minhoca') {
                 hasIsca = true;
             }
+            if (object.id == 'fruto proibido') {
+                hasIsca = true;
+            }
             if (object.id == 'peixe1') {
                 hasIsca = true;
             }
@@ -148,7 +151,7 @@ class OverWorldEvent{
             }
         }
         const pescar = new TextMessage({
-            text: 'sem minhoca',
+            text: 'sem minhoca ou vara',
             onComplete: () => resolve()
         })
         pescar.init(document.querySelector(".game-container"))
@@ -166,6 +169,24 @@ class OverWorldEvent{
             onComplete: () => resolve()
         })
         loja1.init( document.querySelector(".game-container"))
+    }
+    loja2(resolve) {
+        const loja2 = new Loja2({
+            onComplete: () => resolve()
+        })
+        loja2.init( document.querySelector(".game-container"))
+    }
+    loja3(resolve) {
+        const loja3 = new Loja3({
+            onComplete: () => resolve()
+        })
+        loja3.init( document.querySelector(".game-container"))
+    }
+    loja4(resolve) {
+        const loja4 = new Loja4({
+            onComplete: () => resolve()
+        })
+        loja4.init( document.querySelector(".game-container"))
     }
    
     tarot(resolve) {

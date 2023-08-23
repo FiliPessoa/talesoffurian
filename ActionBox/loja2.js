@@ -1,4 +1,4 @@
-class InventarioPersonagem{
+class Loja2 {
     constructor({ text, onComplete }) {
         this.text = text;
         this.onComplete = onComplete;
@@ -11,20 +11,10 @@ class InventarioPersonagem{
 
         // Create instances of Peixe1 and add them to the loja2 array
         let loja2 = [
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Chave1(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
-            new Moeda(),
+            new Bud(),
+            new Bong(),
+            new Cachimbo(),
+            new Cachimbo2(),
         ];
 
         // Add more instances as needed

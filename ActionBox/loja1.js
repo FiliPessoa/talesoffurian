@@ -4,121 +4,46 @@ class Loja1{
         this.onComplete = onComplete;
         this.element = null;
     }
+
     createElement() {
         this.element = document.createElement("div");
         this.element.classList.add("InventoryPersonal");
-        
 
-        this.element.innerHTML = (`
-        
-        
-       
-        <img width="50" height="50"id="randomImage" src="/image/plant/flor.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/casca.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto2.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto3.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/semente.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/folha.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/worm.png" alt="">
-        
-         
-       
-    
-        
-        `)
-       
-        
+        // Create instances of Peixe1 and add them to the loja2 array
+        let loja2 = [
+            new Flor(),
+            new Casca(),
+            new Fruto1(),
+            new Fruto2(),
+            new Fruto3(),
+            new Semente(),
+            new Folha(),
+            new Minhoca(),
+            new Bambu(),
+        ];
+
+        // Add more instances as needed
+
+        // Create an array of image elements based on the loja2 array
+        let imageElements = loja2.map((peixe) => {
+            return `<img width="50" height="50" src="${peixe.sprite.image.src}" alt="">`;
+        });
+
+        this.element.innerHTML = imageElements.join('');
+
         this.actionListener = new KeyPressListener("Enter", () => {
-           this.actionListener.unbind();
-           this.done();
-        })
-        
-                   
-                   
-                    
-                    
-        //             const peixes = [
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe1.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe2.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe5.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe25.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe50.png',
-        //   '/image/peixe/peixe100.png',
-        //   '/image/peixe/peixe100.png',
-        //   '/image/peixe/peixe100.png',
-        //   '/image/peixe/peixe1000.png',
-        //         ]
-               
-           
-  
-       
+            this.actionListener.unbind();
+            this.done();
+        });
+    }
 
-
-        
-            
-                  
-      }
     done() {
         this.element.remove();
         this.onComplete();
-
-    
-
     }
- 
 
     init(container) {
         this.createElement();
-        container.appendChild(this.element)
-       
+        container.appendChild(this.element);
     }
 }
-//rgb(67, 153, 80);
-
