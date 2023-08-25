@@ -2,8 +2,10 @@ class Vara extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Vara",
-             src : '/image/tools/vara.png'
+             id : "vara",
+             src : '/image/tools/vara.png',
+             price:1
+             
         
         }); 
     }
@@ -19,8 +21,10 @@ class Pa extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Pá",
-             src : '/image/tools/pa.png'
+             id : "Pa",
+             src : '/image/tools/pa.png',
+             price:5
+             
         
         }); 
     }
@@ -37,7 +41,8 @@ class Faca extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "Faca",
-             src : '/image/tools/faca.png'
+             src : '/image/tools/faca.png',
+             price:10
         
         }); 
     }
@@ -54,7 +59,8 @@ class Cachimbo extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "Cachimbo",
-             src : '/image/tools/cachimbo.png'
+             src : '/image/tools/cachimbo.png',
+             price:500
         
         }); 
     }
@@ -71,7 +77,8 @@ class Cachimbo2 extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "Cachimbo2",
-             src : '/image/tools/cachimbo2.png'
+             src : '/image/tools/cachimbo2.png',
+             price:250
         
         }); 
     }
@@ -88,7 +95,8 @@ class Bong extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "Bong",
-             src : '/image/tools/bong.png'
+             src : '/image/tools/bong.png',
+             price:1000
         
         }); 
     }
@@ -105,7 +113,8 @@ class Bottle extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "garrafa",
-             src : '/image/tools/bottle.png'
+             src : '/image/tools/bottle.png',
+             price:10
         
         }); 
     }

@@ -13,8 +13,8 @@ class Bambu extends InventoryObject {
     constructor(config) {
         super(config || {
              id : "bambu",
-             src : '/image/plant/bambu.png'
-        
+             src : '/image/plant/bambu.png',
+             price:20
         }); 
     }
     update(state) {
@@ -29,8 +29,9 @@ class Fruto1 extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Fruto1",
-             src : '/image/plant/fruto.png'
+             id : "fruto1",
+             src : '/image/plant/fruto.png',
+             price:5
         
         }); 
     }
@@ -46,8 +47,9 @@ class Fruto2 extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Fruto2",
-             src : '/image/plant/fruto2.png'
+             id : "fruto2",
+             src : '/image/plant/fruto2.png',
+             price:20
         
         }); 
     }
@@ -63,8 +65,9 @@ class Fruto3 extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Fruto3",
-             src : '/image/plant/fruto3.png'
+             id : "fruto3",
+             src : '/image/plant/fruto3.png',
+             price:15
         
         }); 
     }
@@ -80,8 +83,9 @@ class Casca extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Casca",
-             src : '/image/plant/casca.png'
+             id : "casca",
+             src : '/image/plant/casca.png',
+             price:75
         
         }); 
     }
@@ -97,8 +101,9 @@ class Folha extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Folha",
-             src : '/image/plant/folha.png'
+             id : "folha",
+             src : '/image/plant/folha.png',
+             price:10
         
         }); 
     }
@@ -114,8 +119,9 @@ class Flor extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Flor",
-             src : '/image/plant/flor.png'
+             id : "flor",
+             src : '/image/plant/flor.png',
+             price:50
         
         }); 
     }
@@ -131,9 +137,9 @@ class Semente extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Semente",
-             src : '/image/plant/semente.png'
-        
+             id : "semente",
+             src : '/image/plant/semente.png',
+             price:100
         }); 
     }
     update(state) {
@@ -148,8 +154,9 @@ class Bud extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "Bud",
-             src : '/image/plant/bud.png'
+             id : "bud",
+             src : '/image/plant/bud.png',
+             price:500
         
         }); 
     }

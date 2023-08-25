@@ -10,21 +10,19 @@ class Loja2 {
         this.element.classList.add("InventoryPersonal");
 
         // Create instances of Peixe1 and add them to the loja2 array
-        let loja2 = [
-            new Bud(),
-            new Bong(),
-            new Cachimbo(),
-            new Cachimbo2(),
+       
+        let loja2asset = [
+            `<img width="50" height="50"id="randomImage" src="/image/plant/bud.png" alt=""onclick="bud()">
+            <img width="50" height="50"id="randomImage" src="/image/tools/bong.png" alt=""onclick="bong()">
+            <img width="50" height="50"id="randomImage" src="/image/tools/cachimbo.png" alt=""onclick="cachimbo1()">
+            <img width="50" height="50"id="randomImage" src="/image/tools/cachimbo2.png" alt=""onclick="cachimbo2()">`
         ];
-
         // Add more instances as needed
 
         // Create an array of image elements based on the loja2 array
-        let imageElements = loja2.map((peixe) => {
-            return `<img width="50" height="50" src="${peixe.sprite.image.src}" alt="">`;
-        });
+       
 
-        this.element.innerHTML = imageElements.join('');
+        this.element.innerHTML = loja2asset;
 
         this.actionListener = new KeyPressListener("Enter", () => {
             this.actionListener.unbind();
@@ -41,4 +39,24 @@ class Loja2 {
         this.createElement();
         container.appendChild(this.element);
     }
+}
+function bud() {
+    inv.push(new Bud());
+    console.log('added item');
+    
+}
+function bong() {
+    inv.push(new Bong());
+    console.log('added item');
+    
+}
+function cachimbo1() {
+    inv.push(new Cachimbo());
+    console.log('added item');
+    
+}
+function cachimbo2() {
+    inv.push(new Cachimbo2());
+    console.log('added item');
+    
 }

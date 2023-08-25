@@ -121,22 +121,22 @@ class OverWorldEvent{
         let hasVara = false;
         if(inv.length > 0) {
         inv.forEach((object) => {
-            if (object.id == 'minhoca') {
+            if (object.id === 'minhoca') {
                 hasIsca = true;
             }
-            if (object.id == 'fruto proibido') {
+            if (object.id === 'fruto1') {
                 hasIsca = true;
             }
-            if (object.id == 'peixe1') {
+            if (object.id === 'peixe1') {
                 hasIsca = true;
             }
-            if (object.id == 'peixe5') {
+            if (object.id === 'peixe5') {
                 hasIsca = true;
             }
-            if (object.id == 'peixe50') {
+            if (object.id === 'peixe50') {
                 hasIsca = true;
             }
-            if (object.id == 'vara') {
+            if (object.id === 'vara') {
                 hasVara = true;
             }
         })
@@ -188,6 +188,12 @@ class OverWorldEvent{
         })
         loja4.init( document.querySelector(".game-container"))
     }
+    loja5(resolve) {
+        const loja5 = new Loja5({
+            onComplete: () => resolve()
+        })
+        loja5.init( document.querySelector(".game-container"))
+    }
    
     tarot(resolve) {
         const cartas = new Tarot({
@@ -219,6 +225,22 @@ class OverWorldEvent{
             onComplete: () => resolve()
         })
         inventory.init( document.querySelector(".game-container"))
+    }
+    moneymanager(resolve) {
+
+        if(this.event.faceHero){
+            const obj = this.map.gameObjects[this.event.faceHero];
+            obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
+        }
+       
+        const moneymanager = new MoneyManager({
+            text: this.event.text,
+            id: this.event.id,
+            inventoryObject: this.event.inventoryObject,
+            onComplete: () => resolve()
+        })
+        
+        moneymanager.init( document.querySelector(".game-container"))
     }
     
 

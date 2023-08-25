@@ -345,8 +345,8 @@ loja4: new GameObject({
          
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(29), 
-                y:utils.withGrid(55),                
+                x:utils.withGrid(50), 
+                y:utils.withGrid(50),                
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -399,22 +399,7 @@ loja4: new GameObject({
        },
        cutsceneSpaces:{
          // [utils.asGridCoord(14,25)]
-         [utils.asGridCoord(29,55)] : [
-            
-            {
-               events:[
-                  {
-                     type: "interactionBox", 
-                     text:"Moeda",
-                     inventoryObject: new Moeda(
-
-                     )
-                 },
-
-
-               ]
-            }
-         ],
+      
           [utils.asGridCoord(85,76)] : [
             
              {
@@ -466,6 +451,15 @@ loja4: new GameObject({
             
             {
                events:[
+                  {type:"pescaria", text:"Pescar"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(65,65)] : [
+            
+            {
+               events:[
                   {
                      type: "interactionBox", 
                      text:"Peixe 1",
@@ -510,7 +504,54 @@ loja4: new GameObject({
                ]
             }
          ], 
-          
+         [utils.asGridCoord(66,65)] : [
+            
+            {
+               events:[
+                  {
+                     type: "interactionBox", 
+                     text:"Peixe 1",
+                     inventoryObject: new Peixe1()
+                 },
+                 {
+                  type: "interactionBox", 
+                  text:"Peixe 5",
+                  inventoryObject: new Peixe5()
+              },
+              {
+               type: "interactionBox", 
+               text:"Peixe 10",
+               inventoryObject: new Peixe10()
+           },
+           {
+            type: "interactionBox", 
+            text:"Peixe 25",
+            inventoryObject: new Peixe25()
+        },
+        {
+         type: "interactionBox", 
+         text:"Peixe 50",
+         inventoryObject: new Peixe50()
+     },
+     {
+      type: "interactionBox", 
+      text:"Peixe 100",
+      inventoryObject: new Peixe100()
+  },
+   {
+      type: "interactionBox", 
+      text:"Peixe 200",
+      inventoryObject: new Peixe200()
+   },
+      {
+         type: "interactionBox", 
+         text:"Peixe 500",
+         inventoryObject: new Peixe500()
+     },
+  
+               ]
+            }
+         ], 
         
          [utils.asGridCoord(51,57)] : [
             
@@ -563,6 +604,15 @@ loja4: new GameObject({
             {
                events:[
                   {type:"loja4", text:"Tesouro"},
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(65,53)] : [
+            
+            {
+               events:[
+                  {type:"loja5", text:"Tesouro"},
 
                ]
             }
@@ -777,13 +827,10 @@ loja4: new GameObject({
             {
                events:[
                   {
-                  type:"interactionBox", 
-                  text:"Vara de Pescar",
-                  id:"vara",
-                  inventoryObject: new Isca({
-                     id: "vara",
-                     src: '/image/tools/vara.png',  
-                 })},
+                     type:"interactionBox", 
+                     text:"Vara de Pescar",
+                     inventoryObject: new Vara(),
+                     }
 
                ]
             }
@@ -794,12 +841,8 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Pegar minhoca",
-                  id:"minhoca",
-                  inventoryObject: new Isca({
-                     id: "minhoca",
-                     src: '/image/peixe/worm.png',  
-                 })},
+                  text:"Minhoca",
+                  inventoryObject: new Minhoca()},
 
                ]
             }
@@ -1134,7 +1177,7 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta 2",
+                  text:"Fruta2",
                   inventoryObject: new Fruto2()},
 
                ]
@@ -1146,7 +1189,7 @@ loja4: new GameObject({
                events:[
                   {
                   type:"interactionBox", 
-                  text:"Fruta 2",
+                  text:"Fruta2",
                   inventoryObject: new Fruto2()},
 
                ]
@@ -1180,6 +1223,43 @@ loja4: new GameObject({
                   type:"interactionBox", 
                   text:"Misty Guitar",
                   inventoryObject: new MistyGuitar()},
+
+               ],
+            
+            }
+         ],
+         [utils.asGridCoord(81,55)] : [
+            {
+           
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"${moeda.amount}",
+                  id:"moeda",
+                  inventoryObject: new Moeda(15)},
+
+               ],
+               events:[
+                  {
+                   
+                  type:"interactionBox", 
+                  text:`${Moeda.amount}`,
+                  id:"moeda",
+                  inventoryObject: new Moeda(45)},
+
+               ],
+            
+            }
+         ],
+         [utils.asGridCoord(81,56)] : [
+            {
+           
+               events:[
+                  {
+                  type:"moneymanager", 
+                  text:"Quantidade",
+                  id:"moeda",
+                  inventoryObject: new Moeda(2)},
 
                ],
             

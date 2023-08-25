@@ -10,20 +10,18 @@ class Loja4 {
         this.element.classList.add("InventoryPersonal");
 
         // Create instances of Peixe1 and add them to the loja2 array
-        let loja4 = [
-            new Caixa(),
-            new Piano(),
-            new Pife(),
+    
+        let loja4asset = [
+            `<img width="50" height="50"id="randomImage" src="/image/instrumentos/caixa.png" alt=""onclick="caixa()">
+            <img width="50" height="50"id="randomImage" src="/image/instrumentos/piano.png" alt=""onclick="piano()">
+            <img width="50" height="50"id="randomImage" src="/image/instrumentos/pife.png" alt=""onclick="pife()">`
         ];
-
         // Add more instances as needed
 
         // Create an array of image elements based on the loja2 array
-        let imageElements = loja4.map((peixe) => {
-            return `<img width="50" height="50" src="${peixe.sprite.image.src}" alt="">`;
-        });
+      
 
-        this.element.innerHTML = imageElements.join('');
+        this.element.innerHTML = loja4asset;
 
         this.actionListener = new KeyPressListener("Enter", () => {
             this.actionListener.unbind();
@@ -40,4 +38,19 @@ class Loja4 {
         this.createElement();
         container.appendChild(this.element);
     }
+}
+function caixa() {
+    inv.push(new Caixa());
+    console.log('added item');
+    
+}
+function piano() {
+    inv.push(new Piano());
+    console.log('added item');
+    
+}
+function pife() {
+    inv.push(new Pife());
+    console.log('added item');
+    
 }

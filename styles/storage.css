@@ -24,6 +24,18 @@
 
 
 }
+.fishStore{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:120px;
+    width:384px;
+    padding:4px;
+    background: rgb(152, 91, 35);
+
+
+}
 
 
 
