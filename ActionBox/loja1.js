@@ -36,6 +36,8 @@ class Loja1{
 
         // Add more instances as needed
 
+        
+
         // Create an array of image elements based on the loja2 array
        
         this.element.innerHTML = loja1asset;
@@ -105,5 +107,23 @@ function minhoca() {
 function bambu() {
     inv.push(new Bambu());
     console.log('added item');
+    
+}
+
+function buy() {
+
+    
+   
+   if(totalAmount > inventoryObject.price){
+    inv.push(object);
+    console.log('added item');
+    totalAmount = totalAmount - inventoryObject.price
+
+   }
+   if(totalAmount < InventoryObjectbject){
+
+    console.log('Saldo Insuficiente');
+
+   }
     
 }

@@ -7,7 +7,8 @@ class Moeda extends InventoryObject {
         // Use the static properties id and src
         super({
             id: Moeda.id,
-            src: Moeda.src
+            src: Moeda.src,
+            price:amount
         });
 
         this.amount = amount || 1; // Set the amount provided or default to 1

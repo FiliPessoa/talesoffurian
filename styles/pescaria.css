@@ -3,7 +3,7 @@
     left:0;
     right:0;
     bottom:0;
-    height:144px;
+    height:150px;
     width:384px;
     padding:4px;
     background: cornflowerblue;
@@ -29,7 +29,7 @@
 .center{    
     margin-top: 0px;  
     margin-left: 270px;
-    height:135px;
+    height:140px;
     width:103px;
     padding:4px;
     background: chocolate;
@@ -49,9 +49,9 @@
 
 }
 .frame{    
-    margin-top: -135px;
+    margin-top: -140px;
     margin-left:3px;
-    height:135px;
+    height:140px;
     width:135px;
     
     background: chocolate;
@@ -61,10 +61,10 @@
 }
 
 .right2{    
-    margin-top: -135px;
+    margin-top: -140px;
     margin-left: 138px;
    
-    height:135px;
+    height:140px;
     width:120px;
     padding:4px;
     background: chocolate;

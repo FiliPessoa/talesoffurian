@@ -121,32 +121,38 @@ class OverWorldEvent{
         let hasVara = false;
         if(inv.length > 0) {
         inv.forEach((object) => {
-            if (object.id === 'minhoca') {
-                hasIsca = true;
-            }
-            if (object.id === 'fruto1') {
-                hasIsca = true;
-            }
-            if (object.id === 'peixe1') {
-                hasIsca = true;
-            }
-            if (object.id === 'peixe5') {
-                hasIsca = true;
-            }
-            if (object.id === 'peixe50') {
-                hasIsca = true;
-            }
+            // if (object.id === 'minhoca') {
+            //     hasIsca = true;
+            // }
+            // if (object.id === 'fruto1') {
+            //     hasIsca = true;
+            // }
+            // if (object.id === 'peixe1') {
+            //     hasIsca = true;
+            // }
+            // if (object.id === 'peixe5') {
+            //     hasIsca = true;
+            // }
+            // if (object.id === 'peixe50') {
+            //     hasIsca = true;
+            // }
             if (object.id === 'vara') {
                 hasVara = true;
             }
         })
         
-        if (hasIsca == true && hasVara == true) {
+      //  if (hasIsca == true && hasVara == true) {
+            if (hasVara == true) {
         const pescar = new Pescaria({
             onComplete: () => resolve()
         });
 
             pescar.init(document.querySelector(".game-container"));
+            const fishinvin = new FishingInventory({
+                onComplete: () => resolve()
+            });
+    
+            fishinvin.init(document.querySelector(".game-container"));
             return
             }
         }
