@@ -170,8 +170,8 @@ class CaixaCantante{
          this.actionListener = new KeyPressListener("ArrowRight", () => {
         
          })
-         
-
+         updateMusicxp(15)
+         updateStamina(-15)
     }
     done() {
         this.element.remove();

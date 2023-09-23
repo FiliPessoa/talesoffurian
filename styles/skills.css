@@ -1,0 +1,50 @@
+
+.SkillMenu{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:120px;
+    width:384px;
+    padding:4px;
+    background: var(--menu-background);
+
+
+}
+.musicxp{
+  
+    height:110px;
+    width:110px;
+    padding:4px;
+    background: rgb(152, 91, 35);
+
+
+}
+.fishingxp {
+   margin-left: 115px;
+   margin-top: -110px;
+   height:110px;
+   width:110px;
+    padding:4px;
+    background: rgb(152, 91, 35);
+}
+.witchcraftxp{
+    margin-left: 230px;
+   margin-top: -110px;
+   height:110px;
+   width:110px;
+    padding:4px;
+    background: rgb(152, 91, 35);
+}
+
+
+
+.totalxp{
+ 
+    margin-top: -70px;
+    height:60px;
+    width:370px;
+    padding:4px;
+    background: rgb(35, 152, 134);
+
+}

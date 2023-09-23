@@ -192,7 +192,8 @@ bum.addEventListener('click', function(){
             chocalho2.play();   
          })
       
-
+         updateMusicxp(15)
+         updateStamina(-15)
     }
     done() {
         this.element.remove();

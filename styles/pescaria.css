@@ -4,7 +4,7 @@
     right:0;
     bottom:0;
     height:150px;
-    width:384px;
+    width:270px;
     padding:4px;
     background: cornflowerblue;
 
@@ -144,7 +144,7 @@
 }
 .pescar{
     margin-left:30px;
-    margin-top:30px;
+    margin-top:15px;
     
     
     height:50px;
@@ -156,3 +156,12 @@
 
 }
 
+.fishlog{
+    margin-top: 10px;
+    height:50px;
+    width: 105px;
+    padding:10px;
+    background: rgb(97, 151, 230);
+   
+
+}

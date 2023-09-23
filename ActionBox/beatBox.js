@@ -92,7 +92,7 @@ class BeatBox{
             nota11.currentTime = 0;
             nota11.play();  
          })
-
+         musicxp=musicxp+15;
     }
     done() {
         this.element.remove();

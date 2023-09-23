@@ -1,4 +1,3 @@
-let storage = [];
 class Storage{
     constructor({ text, onComplete }) {
         this.text = text;
@@ -7,51 +6,17 @@ class Storage{
     }
     createElement() {
         this.element = document.createElement("div");
-        this.element.classList.add("Inventory");
+        this.element.classList.add("Bank");
+        let storageItem = '';
+        if (storage.length > 0) {
+            for (let j = 0; j < storage.length; j++) {
+                const storageList = storage[j];
+             storageItem += `<img width="50" height="50" id="inventaryImage" src="${storageList.sprite.image.src}" alt="" onclick="openItemBox({ id: '${storageList.id}', price: '${storageList.price}' ,src: '${storageList.sprite.image.src}' })">\n`;
+             }
+        }
         
+        this.element.innerHTML = storageItem;
 
-        this.element.innerHTML = (`
-        
-        
-       
-        
-        <img width="50" height="50"id="randomImage" src="/image/peixe/moeda.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe1.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe5.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe10.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe25.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe50.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe100.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe200.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/peixe500.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/bud.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/cachimbo.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/flor.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto2.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/semente.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/folha.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/casca.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/fruto3.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/chave/chave1.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/chave/chave2.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/chave/chave3.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/chave/chave4.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/pa.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/faca.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/vara.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/worm.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/pergaminho.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/tools/bottle.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/plant/bambu.png" alt="">
-        <img width="50" height="50"id="randomImage" src="/image/peixe/tarot.png" alt="">
-         
-       
-    
-        
-        `)
-       
-        
         this.actionListener = new KeyPressListener("Enter", () => {
            this.actionListener.unbind();
            this.done();
@@ -59,86 +24,7 @@ class Storage{
         
                    
                    
-                    
-                    
-                    const peixes = [
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe1.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe5.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe10.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe25.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peixe50.png',
-          '/image/peixe/peix100.png',
-          '/image/peixe/peix100.png',
-          '/image/peixe/peix100.png',
-          '/image/peixe/peix100.png',
-          '/image/peixe/peix100.png',
-          '/image/peixe/peixe200.png',
-          '/image/peixe/peixe200.png',
-          '/image/peixe/peixe200.png',
-          '/image/peixe/peixe500.png',
-                ]
-               
            
-                function displayRandomImage() {
-                    const peixes = [ /* ... Add your array of image URLs here ... */ ];
-                    const randomIndex = Math.floor(Math.random() * peixes.length);
-                    const randomImageURL = peixes[randomIndex];
-                    const randomImage = document.getElementById("randomImage");
-                    randomImage.src = randomImageURL;
-                }
-                
-                    
-                // const pescarButton = document.querySelector('.pescar');
-                // pescarButton.addEventListener('click', () => displayRandomImage());
-        
-    
-
        
 
 

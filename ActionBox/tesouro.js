@@ -14,7 +14,6 @@ class InventarioPersonagem{
             new Moeda(10),
             new Moeda(50),
             new Moeda(10),
-            new Chave1(20),
             new Moeda(30),
             new Moeda(10),
             new Moeda(5),
@@ -25,6 +24,7 @@ class InventarioPersonagem{
             new Moeda(10),
             new Moeda(20),
             new Moeda(5),
+            new Chave1(),
         ];
 
         // Add more instances as needed

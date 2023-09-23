@@ -4,7 +4,7 @@ class Vara extends InventoryObject {
         super(config || {
              id : "vara",
              src : '/image/tools/vara.png',
-             price:1
+             price:5
              
         
         }); 
@@ -17,13 +17,42 @@ class Vara extends InventoryObject {
         // Your behavior logic here
     }
 }
+class Vergalhão extends InventoryObject {
+
+    constructor(config) {
+        var isHot=true;
+        super(config || {
+             id : isHot ?"vergalhaoquente" : "vergalhao",
+             src : isHot ? '/image/tools/vergalhaoquente.png' :'/image/tools/vergalhao.png' ,
+             price:20
+             
+        
+        }); 
+    }
+    update(state) {
+     if (isHot === false) { // Use '===' for comparison, not '='
+           
+                console.log("It's hot!");
+                console.log(isHot);
+            } else if (isHot === true) { // Use '===' for comparison, not '='
+                isHot = false;
+                console.log("It's not hot.");
+                console.log(isHot);
+            }
+     
+    }
+
+    startBehavior(state, behavior) {
+        // Your behavior logic here
+    }
+}
 class Pa extends InventoryObject {
 
     constructor(config) {
         super(config || {
              id : "Pa",
              src : '/image/tools/pa.png',
-             price:5
+             price:10
              
         
         }); 
@@ -42,7 +71,7 @@ class Faca extends InventoryObject {
         super(config || {
              id : "Faca",
              src : '/image/tools/faca.png',
-             price:10
+             price:15
         
         }); 
     }
@@ -78,7 +107,7 @@ class Cachimbo2 extends InventoryObject {
         super(config || {
              id : "Cachimbo2",
              src : '/image/tools/cachimbo2.png',
-             price:250
+             price:1000
         
         }); 
     }
@@ -96,7 +125,25 @@ class Bong extends InventoryObject {
         super(config || {
              id : "Bong",
              src : '/image/tools/bong.png',
-             price:1000
+             price:2000
+        
+        }); 
+    }
+    update(state) {
+        // Your update logic here
+    }
+
+    startBehavior(state, behavior) {
+        // Your behavior logic here
+    }
+}
+class Panela extends InventoryObject {
+    constructor(config) {
+        const hasWater = true;
+        super(config || {
+             id : hasWater ? "panelacomagua" : "panela",
+             src : hasWater ? '/image/tools/panelacomagua.png' :'/image/tools/panela.png',
+             price:20
         
         }); 
     }
@@ -136,19 +183,24 @@ class BottlePerg extends InventoryObject {
         }); 
     }
     update(state) {
-        // Your update logic here
+        function possion(indexToRemove){
+            inv.splice(indexToRemove, 1);
+            inv.push(new Bottle())
+            inv.push(new Pergaminho())
+        }
     }
 
     startBehavior(state, behavior) {
         // Your behavior logic here
     }
 }
-class BottleWine extends InventoryObject {
+
+class Pergaminho extends InventoryObject {
 
     constructor(config) {
         super(config || {
-             id : "garrafa com Suco Roxo",
-             src : '/image/tools/bottlewine.png'
+             id : "pergaminho",
+             src : '/image/peixe/pergaminho.png'
         
         }); 
     }

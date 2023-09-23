@@ -121,28 +121,28 @@ class OverWorldEvent{
         let hasVara = false;
         if(inv.length > 0) {
         inv.forEach((object) => {
-            // if (object.id === 'minhoca') {
-            //     hasIsca = true;
-            // }
-            // if (object.id === 'fruto1') {
-            //     hasIsca = true;
-            // }
-            // if (object.id === 'peixe1') {
-            //     hasIsca = true;
-            // }
-            // if (object.id === 'peixe5') {
-            //     hasIsca = true;
-            // }
-            // if (object.id === 'peixe50') {
-            //     hasIsca = true;
-            // }
+             if (object.id === 'minhoca') {
+                 hasIsca = true;
+             }
+             if (object.id === 'fruto1') {
+                 hasIsca = true;
+             }
+             if (object.id === 'peixe1') {
+                 hasIsca = true;
+             }
+             if (object.id === 'peixe5') {
+                 hasIsca = true;
+             }
+             if (object.id === 'peixe50') {
+                 hasIsca = true;
+             }
             if (object.id === 'vara') {
                 hasVara = true;
             }
         })
         
-      //  if (hasIsca == true && hasVara == true) {
-            if (hasVara == true) {
+       if (hasIsca == true && hasVara == true) {
+     
         const pescar = new Pescaria({
             onComplete: () => resolve()
         });
@@ -225,28 +225,18 @@ class OverWorldEvent{
             onComplete: () => resolve()
         })
         storage.init( document.querySelector(".game-container"))
+        const halfMenu = new HalfMenu({
+            onComplete: () => resolve()
+        });
+
+        halfMenu.init(document.querySelector(".game-container"));
+        return
     }
     inventory(resolve) {
         const inventory = new Inventory({
             onComplete: () => resolve()
         })
         inventory.init( document.querySelector(".game-container"))
-    }
-    moneymanager(resolve) {
-
-        if(this.event.faceHero){
-            const obj = this.map.gameObjects[this.event.faceHero];
-            obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction);
-        }
-       
-        const moneymanager = new MoneyManager({
-            text: this.event.text,
-            id: this.event.id,
-            inventoryObject: this.event.inventoryObject,
-            onComplete: () => resolve()
-        })
-        
-        moneymanager.init( document.querySelector(".game-container"))
     }
     
 

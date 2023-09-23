@@ -425,12 +425,13 @@ ctx.fill();
    
         `)
        
-        
+      
         this.actionListener = new KeyPressListener("Enter", () => {
            this.actionListener.unbind();
            this.done();
         })
-
+        updateMusicxp(15)
+         updateStamina(-15)
     }
     done() {
         this.element.remove();

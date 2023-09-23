@@ -1,0 +1,68 @@
+quests
+
+-fish some fish
+-sell some fish
+-make $250
+-find the treasure and the first Key
+-make some apple juice
+-learn to play percussion, get to lvl 5 of music, learn the seven rithm of the festival, play on the festival
+-take bambu, make a tea, make a pife, play the pife.
+-learn the possions{Strenght possion, Xp Potion, Money Potion}
+-
+
+chalenges
+- master 7 rithm
+- fish all fish
+- have a couple of each fish in your lagoon
+- collect all amulets
+- find all treasures
+- guess the color
+- create 5 songs
+
+skills
+
+music
+lvl 1 percussion 10px p/m
+lvl 5 pife 20px p/m
+lvl 10 base guitar 40px p/m
+lvl 20 caixa 60px p/m
+lvl 30 piano 70px p/m
+lvl 40 solo guitar 80px p/m
+lvl 50 Estudio 100px p/m 
+
+fishing
+lvl 1 peixe1 10xp     
+lvl 5 peixe5 20xp
+lvl 10 peixe10 30xp
+lvl 15 peixe25 40xp
+lvl 20 peixe50 60xp
+lvl 30 peixe100 70xp
+lvl 40 peixe200 80xp
+lvl 50 peixe500 100xp
+
+witchcraft
+lvl 1 apple juice
+lvl 5 grape juice
+lvl 10 tea
+lvl 15 meditation
+lvl 18 green Amulet
+lvl 20 Strenght potion 60xp
+lvl 28 red Amulet
+lvl 30 money potion
+lvl 38 yellow Amulet
+lvl 40 xp potion
+lvl 48 purple Amulet
+lvl 50 tarot
+
+
+Farming
+
+
+HandCraft
+
+
+
+
+Total Skill
+
+

@@ -179,15 +179,15 @@ window.OverworldMaps = {
             ]
             
         }),
-      //   planta5: new GameObject({
-      //    x:utils.withGrid(35),
-      //    y:utils.withGrid(48),
-      //    selectionHeight:241,
-      //    selectionWidth:111,
-      //    height:100,
-      //    width:40,
-      //    src:"/image/objects/planta5.png"
-      // }),
+      //    planta5: new GameObject({
+      //     x:utils.withGrid(35),
+      //     y:utils.withGrid(48),
+      //     selectionHeight:241,
+      //     selectionWidth:111,
+      //     height:100,
+      //     width:40,
+      //     src:canabisGrow,
+      //  }),
         lovetree1: new GameObject({
          x:1353-utils.withGrid(64),
          y:1230+utils.withGrid(-26),
@@ -332,7 +332,24 @@ loja4: new GameObject({
  width:51,
  src:"/image/instrument/mesa4.png"
 }),
-
+bottle: new GameObject({
+   x:utils.withGrid(54),
+   y:utils.withGrid(75),
+   selectionHeight:163,
+   selectionWidth:112,
+   height:20,
+   width:10,
+   src:"/image/objects/bottleperg.png"
+}),
+panela: new GameObject({
+   x:utils.withGrid(43),
+   y:utils.withGrid(125),
+   selectionHeight:163,
+   selectionWidth:200,
+   height:20,
+   width:25,
+   src:"/image/objects/panela.png"
+}),
             passaro: new GameObject({
                x:utils.withGrid(104),
                 y:utils.withGrid(45),
@@ -342,11 +359,39 @@ loja4: new GameObject({
                width:12,
                src:"/image/objects/passaro.png"
             }),
-         
+            vergalhao: new GameObject({
+               x:utils.withGrid(53),
+               y:utils.withGrid(65),
+               selectionHeight:183,
+               selectionWidth:183,
+               height:50,
+               width:30,
+               src:"/image/objects/vergalhao.png"
+            }),
+            pa: new GameObject({
+               x:utils.withGrid(19),
+               y:utils.withGrid(13),
+               selectionHeight:180,
+               selectionWidth:380,
+               height:40,
+               width:70,
+               src:"/image/objects/pa.png"
+            }),
+            faca: new GameObject({
+               x:utils.withGrid(99),
+               y:utils.withGrid(53),
+               selectionHeight:183,
+               selectionWidth:131,
+               height:30,
+               width:20,
+               src:"/image/objects/faca.png"
+            }),
             hero: new Person({
                isPlayerControlled: true,   
-                x:utils.withGrid(50), 
-                y:utils.withGrid(50),                
+               //  x:utils.withGrid(29), 
+               //  y:utils.withGrid(51),  
+                  x:utils.withGrid(85), 
+                 y:utils.withGrid(54),                 
            }),
              barco: new GameObject({
                 x:1353-utils.withGrid(23),
@@ -386,6 +431,7 @@ loja4: new GameObject({
       width:40,
                src:"/image/objects/fogueira.png"
             }),
+           
              vara: new GameObject({
                 x:utils.withGrid(35),
                 y:utils.withGrid(60),
@@ -395,6 +441,8 @@ loja4: new GameObject({
                 width:30,
                 src:"/image/objects/vara.png"
              }),
+           
+           
        
        },
        cutsceneSpaces:{
@@ -562,13 +610,43 @@ loja4: new GameObject({
                ]
             }
          ],
+         [utils.asGridCoord(20,12)] : [
+            
+            {
+               events:[
+                  {
+                  type:"interactionBox", 
+                  text:"Pá",
+                  inventoryObject: new Pa()},
+
+               ]
+            }
+         ], 
          [utils.asGridCoord(20,13)] : [
             
             {
                events:[
                   {type:"tesouro", text:"Tesouro"},
 
-               ]
+           
+            
+                  {
+                   
+                  type:"interactionBox", 
+                  text: "tesouro",
+                  id:"moeda",
+                  inventoryObject: new Moeda(13)},
+
+             
+            
+                  {
+                   
+                  type:"interactionBox", 
+                  text: "tesouro",
+                  id:"chave1",
+                  inventoryObject: new Chave1()},
+
+                  ]
             }
          ], 
     
@@ -832,6 +910,66 @@ loja4: new GameObject({
                      inventoryObject: new Vara(),
                      }
 
+               ]
+            }
+         ], 
+              [utils.asGridCoord(53,63)] : [
+            
+            {
+               events:[
+                  {
+                     type:"interactionBox", 
+                     text:"Vergalhão",
+                     inventoryObject: new Vergalhão(),
+                     }
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(43,123)] : [
+            
+            {
+               events:[
+                  {
+                     type:"interactionBox", 
+                     text:"Panela",
+                     inventoryObject: new Panela(),
+                     }
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(99,52)] : [
+            
+            {
+               events:[
+                  {
+                     type:"interactionBox", 
+                     text:"Faca",
+                     inventoryObject: new Faca(),
+                     }
+
+               ]
+            }
+         ], 
+         [utils.asGridCoord(54,73)] : [
+            
+            {
+               events:[
+                  {type:"textMessage", text:"Você encontra uma garrafa de vidro selada com um pergaminho dentro"},
+                //  {type:"textMessage", text:"O pergaminho diz:"},
+                  //{type:"textMessage", text:"no pergaminho está escrito:"},
+                 // {type:"textMessage", text:"Vá Para o Norte! Quando chegar onde o mar e o rio se encontram, encontrará um tesouro"},
+                  //{type:"walk",who:"hero",direction:"left"},
+                  //{type:"changeMap", map:"World"},
+                  {
+                     type:"interactionBox", 
+                     text:"Pegar Garrafa",
+                     id:"bottle",
+                     inventoryObject: new BottlePerg()},
+                
+                 
+   
                ]
             }
          ], 
@@ -1241,25 +1379,10 @@ loja4: new GameObject({
                ],
                events:[
                   {
-                   
                   type:"interactionBox", 
-                  text:`${Moeda.amount}`,
+                  text:"450",
                   id:"moeda",
-                  inventoryObject: new Moeda(45)},
-
-               ],
-            
-            }
-         ],
-         [utils.asGridCoord(81,56)] : [
-            {
-           
-               events:[
-                  {
-                  type:"moneymanager", 
-                  text:"Quantidade",
-                  id:"moeda",
-                  inventoryObject: new Moeda(2)},
+                  inventoryObject: new Moeda(450)},
 
                ],
             
@@ -1332,16 +1455,7 @@ loja4: new GameObject({
          [utils.asGridCoord(49,51)] : true,
          [utils.asGridCoord(49,50)] : true,
          [utils.asGridCoord(50,49)] : true,
-         [utils.asGridCoord(57,49)] : true,
-         [utils.asGridCoord(58,50)] : true,
-         [utils.asGridCoord(58,51)] : true,
-         [utils.asGridCoord(58,52)] : true,
-         [utils.asGridCoord(58,53)] : true,
-         [utils.asGridCoord(58,54)] : true,
-         [utils.asGridCoord(58,55)] : true,
-         [utils.asGridCoord(58,56)] : true,
-         [utils.asGridCoord(58,57)] : true,
-         [utils.asGridCoord(57,58)] : true,
+       
          [utils.asGridCoord(50,58)] : true,
          [utils.asGridCoord(49,57)] : true,
          [utils.asGridCoord(49,56)] : true,
@@ -1956,42 +2070,13 @@ tarot: new GameObject({
             
          {
             events:[
-               {type:"textMessage", text:"Você encontra uma garrafa de vidro selada com um pergaminho dentro"},
-               {type:"textMessage", text:"O pergaminho diz:"},
-               //{type:"textMessage", text:"no pergaminho está escrito:"},
-               {type:"textMessage", text:"Vá Para o Norte! Quando chegar onde o mar e o rio se encontram, encontrará um tesouro"},
-               //{type:"walk",who:"hero",direction:"left"},
-               //{type:"changeMap", map:"World"},
-               {
+      
+              {
                   type:"interactionBox", 
                   text:"bottle",
-                  id:"bottle",
-                  inventoryObject: new Isca({
-                     id: "bottle",
-                     src: '/image/tools/bottlePerg.png',  
-                 },
+                  inventoryObject: new Bottle()},
                  
-                 )},
-               {
-                  type:"interactionBox", 
-                  text:"bottle",
-                  id:"bottle",
-                  inventoryObject: new Isca({
-                     id: "bottle",
-                     src: '/image/tools/bottle.png',  
-                 },
-                 
-                 )},
-                 
-                 {
-                  type:"interactionBox", 
-                  text:"pergaminho",
-                  id:"pergaminho",
-                  inventoryObject: new Isca({
-                     id: "pergaminho",
-                     src: '/image/peixe/pergaminho.png',  
-                 },
-                 )},
+                
               
 
             ]

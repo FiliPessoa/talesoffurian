@@ -7,12 +7,12 @@ class HalfMenu{
     }
     createElement() {
         this.element = document.createElement("div");
-        this.element.classList.add("ConsoleLog");
+        this.element.classList.add("InventoryBank");
         let imagesHtml = '';
         if (inv.length > 0) {
             for (let i = 0; i < inv.length; i++) {
                 const item = inv[i];
-                imagesHtml += `<img width="50" height="50" id="inventaryImage" src="${item.sprite.image.src}" alt="" onclick="removeObjectByIndex(${i})">\n`;
+                imagesHtml += `<img width="50" height="50" id="inventaryImage" src="${item.sprite.image.src}" alt="" onclick="addObjectToStorage(${i})">\n`;
             }
         }
         
@@ -46,4 +46,26 @@ class HalfMenu{
         container.appendChild(this.element)
        
     }
+}
+
+function addObjectToStorage(indexToRemove) {
+    // Remove the object at the specified index
+
+    console.log(indexToRemove);
+    console.log(inv[indexToRemove]);
+    storage.push(inv[indexToRemove]);
+    let removedOne = false;
+
+    inv = inv.filter(object => {
+      if (object.id === inv[indexToRemove].id && !removedOne) {
+        removedOne = true;
+        return false; // This will remove the first occurrence of "garrafa"
+      }
+      return true; // Keep all other items in the array
+    });
+    console.log(storage)
+    console.log('Object added to storage');
+    // Call the function to update the inventory display
+    // updateInventoryDisplay();
+
 }

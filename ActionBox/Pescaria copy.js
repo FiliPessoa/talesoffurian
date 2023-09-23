@@ -1,4 +1,4 @@
-class Pescariaalt {
+class PescariaBackUp {
     constructor({ text, onComplete }) {
         this.text = text;
         this.onComplete = onComplete;
@@ -22,11 +22,12 @@ class Pescariaalt {
 
         <div class="frame">
             <div class="peixe">
-                <img width="120" height="120" id="randomImage" src="" alt="">
+                <img width="120" height="120" id="randomImage" src=" /image/peixe/sempeixe.png" alt="">
             </div>
         </div>
 
         <div class="right2">
+        <div class="fishlog"> </div>
             <button class="pescar">pescar</button>
         </div>`;
 
@@ -38,6 +39,9 @@ class Pescariaalt {
             this.actionListener.unbind();
             this.done();
          })
+          this.actionListener = new KeyPressListener("KeyP", () => {
+             displayRandomImage
+          })
     }
 
     done() {
@@ -50,9 +54,14 @@ class Pescariaalt {
         container.appendChild(this.element);
     }
 }
-this.actionListener = new KeyPressListener("KeyP", () => {
-    displayRandomImage()
- })
+function displayRandomImage2() {
+    const peixes = [ /* ... Add your array of image URLs here ... */ ];
+    const randomIndex = Math.floor(Math.random() * peixes.length);
+    const randomImageURL = peixes[randomIndex];
+    const randomImage = document.getElementById("randomImage");
+    randomImage.src = randomImageURL;
+}
+
 
 function displayRandomImage() {
     hasMinhoca = false;
@@ -63,6 +72,7 @@ function displayRandomImage() {
     const uniqueSpritePaths = [...new Set([
         '/image/peixe/peixe1.png',
         '/image/peixe/peixe5.png',
+        '/image/peixe/peixe10.png',
         '/image/peixe/peixe25.png',
         '/image/peixe/peixe50.png',
         '/image/peixe/peixe100.png',
@@ -187,6 +197,7 @@ function displayRandomImage() {
             const indexOfWorm = inv.findIndex((object) => object.id === 'minhoca');
             iscaNoAnzol(indexOfWorm);
             inv.push(new Peixe1())
+            updateFishingxp(10)
             console.log("Peixe Pescado")
                 }else{
                    
@@ -205,6 +216,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfFruta);
             inv.push(new Peixe5())
             console.log("Peixe Pescado")
+            updateFishingxp(20)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -221,6 +233,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfPeixe1);
             inv.push(new Peixe10())
             console.log("Peixe Pescado")
+            updateFishingxp(30)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -237,6 +250,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfPeixe1);
             inv.push(new Peixe25())
             console.log("Peixe Pescado")
+            updateFishingxp(40)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -253,6 +267,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfWorm);
             inv.push(new Peixe50())
             console.log("Peixe Pescado")
+            updateFishingxp(60)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -269,6 +284,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfPeixe50);
             inv.push(new Peixe100())
             console.log("Peixe Pescado")
+            updateFishingxp(70)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -285,6 +301,7 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfPeixe50);
             inv.push(new Peixe200())
             console.log("Peixe Pescado")
+            updateFishingxp(80)
                 }else{
                    
                     console.log("Peixe Escapou")
@@ -301,12 +318,16 @@ function displayRandomImage() {
             iscaNoAnzol(indexOfPeixe5);
             inv.push(new Peixe500())
             console.log("Peixe Pescado")
+            updateFishingxp(100)
                 }else{
                    
                     console.log("Peixe Escapou")
                 }
             
-        }
+        } 
+        updateStamina(-15)
+        captureConsoleLogs();
+       
 //         setTimeout('', 5000);
 //    inv.push(new Fish({
 //     id: "peixe",
@@ -318,6 +339,14 @@ function displayRandomImage() {
   
     
 }
+const inventory = new FishingInventory({
+    // id: itemList.id,
+    // price: itemList.price,
+    // src: itemList.src,
+  
+    onComplete: () => console.log('closed')
+});
+inventory.init(document.querySelector(".game-container"));
         }
 
         function iscaNoAnzol(indexToRemove) {
@@ -335,8 +364,49 @@ function displayRandomImage() {
             } else {
                 // Something to do when the worm is not found
                 console.log('Sem Isca');
-                done();
+      
             }
+        }
+        function captureConsoleLogs() {
+            const logDivs = document.getElementsByClassName('fishlog');
+        
+            if (logDivs.length === 0) {
+                console.error('No elements found with class "fishlog".');
+                return;
+            }
+        
+            const logDiv = logDivs[0];
+        
+            if (!logDiv.appendChild) {
+                console.error('The selected element does not support appendChild.');
+                return;
+            }
+        
+            // Save the original console.log function
+            const originalConsoleLog = console.log;
+        
+            // Override the console.log function
+            console.log = function() {
+                // Convert arguments to an array and join them into a string
+                const logMessage = Array.from(arguments).join(' ');
+        
+                // Clear the previous log entries
+                logDiv.innerHTML = '';
+        
+                // Create a new div element to display the log message
+                const logEntry = document.createElement('div');
+                // logEntry.style.fontFamily = 'Arial, sans-serif'; // Change this to your desired font
+                // logEntry.style.fontSize = '16px'; // Change this to your desired font size
+                 logEntry.style.textAlign = 'center'; // Center-align the text
+                // logEntry.style.color = 'black'; // Change this to your desired font color
+                logEntry.textContent = logMessage;
+        
+                // Append the log message to the logDiv
+                logDiv.appendChild(logEntry);
+        
+                // Call the original console.log function
+                originalConsoleLog.apply(console, arguments);
+            };
         }
 
 

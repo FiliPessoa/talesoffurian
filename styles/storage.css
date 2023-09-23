@@ -24,6 +24,18 @@
 
 
 }
+.InventoryBank{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:120px;
+    width:300px;
+    padding:4px;
+    background: var(--menu-background);
+
+
+}
 .fishStore{
     position: absolute;
     left:0;
@@ -46,19 +58,53 @@
     padding: 4px;
     background: rgb(151, 96, 44);
 }
+.Bank {
+    position: absolute;
+    left: auto; /* Set left to auto to remove any previous left alignment */
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    width: 300px;
+    padding: 4px;
+    background: rgb(151, 96, 44);
+}
+
+.TextMessageMini{
+    position: absolute;
+    left: auto; /* Set left to auto to remove any previous left alignment */
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    width: 216px;
+    padding: 4px;
+    background: rgb(210, 159, 83);
+}
+
 .fishInv{
     position: absolute;
     left: auto; /* Set left to auto to remove any previous left alignment */
     right: 0;
     bottom: 0;
     height: 150px;
-    width: 220px;
+    width: 330px;
     padding: 4px;
     background: var(--menu-background);
 }
 
 
 .consoleL{
+  
+    margin-top: -105px;
+    margin-left: 3px;
+    height:105px;
+    width:105px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.profilepic{
   
     margin-top: -105px;
     margin-left: 3px;
@@ -96,6 +142,30 @@
 
 }
 .money{
+  
+    margin-top: 5px;
+    margin-left: 117px;
+    height:20px;
+    width:85px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.staminadiv{
+  
+    margin-top: 5px;
+    margin-left: 117px;
+    height:20px;
+    width:85px;
+    padding:4px;
+    background: var(--menu-background);
+    border-top: 1px solid var(--menu-border-color);
+    color: var(--menu-font-color);
+
+}
+.xpdiv{
   
     margin-top: 5px;
     margin-left: 117px;

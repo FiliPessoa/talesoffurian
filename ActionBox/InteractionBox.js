@@ -23,20 +23,66 @@ class InteractionBox{
         this.element.querySelector("button").addEventListener("click", () => {
             if(inv.length > 13){
              
-                const textM = new TextMessage({
-                    text: 'sem minhoca',
+                const textMessage = new TextMessageMinima({
+                    text: 'Inventário Cheio',
                     onComplete: () => resolve()
                 })
+                textMessage.init(document.querySelector(".game-container"))
               
                
             }
             else{
-            inv.push(this.inventoryObject);
+
+
+               let hasMoney = false;
+
+
+               
+
+               if (this.inventoryObject.id === 'moeda') {
+                inv.forEach((object) => {
+                    if (object.id === 'moeda') {
+                        hasMoney = true;
+                    }
+                })
+                
+                    if (hasMoney == true) {
+                        const coinValue = this.inventoryObject.amount;
+                        inv = inv.filter(object => object.id !== "moeda");
+                        const moeda = new Moeda(totalAmount+coinValue);
+                    inv.push(moeda);
+                    }else{
+                        inv.push(this.inventoryObject);
+                    }
+                      
+              
+        
+            }else{ 
+                inv.push(this.inventoryObject);
+
+            }
+
+
+
+
+
+
+
+            const totalAmount1 = inv.reduce((accumulator, inventoryObject) => {
+                if (inventoryObject instanceof Moeda && typeof inventoryObject.amount === 'number') {
+                    return accumulator + inventoryObject.amount;
+                }
+                return accumulator;
+            }, 0);
+            console.log(totalAmount1)
+            updateTotalAmount(totalAmount1);
+            
             console.log('added item');
             this.done();
         }
         });
-        
+       
+
         this.actionListener = new KeyPressListener("Enter", () => {
            this.actionListener.unbind();
            this.done();
@@ -48,18 +94,30 @@ class InteractionBox{
          this.actionListener = new KeyPressListener("KeyP", () => {
             if(inv.length > 13){
              
-                new TextMessage({type:"textMessage",text:"Inventory Full"})
-                this.done()
+                const textMessage = new TextMessageMinima({
+                    text: 'Inventário Cheio',
+                    onComplete: () => resolve()
+                })
+                textMessage.init(document.querySelector(".game-container"))
                
                
             }
             else{
             inv.push(this.inventoryObject);
             console.log('added item');
-            this.done();
+
+            const totalAmount1 = inv.reduce((accumulator, inventoryObject) => {
+                if (inventoryObject instanceof Moeda && typeof inventoryObject.amount === 'number') {
+                    return accumulator + inventoryObject.amount;
+                }
+                return accumulator;
+            }, 0);
+            console.log(totalAmount1)
+            updateTotalAmount(totalAmount1);
+           
         }
          })
-
+ 
     }
     done() {
         this.element.remove();
@@ -72,3 +130,7 @@ class InteractionBox{
         container.appendChild(this.element)
     }
 }
+
+
+
+function takeObject(){}

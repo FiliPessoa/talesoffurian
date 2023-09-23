@@ -22,7 +22,7 @@ class DistyGuitar extends InventoryObject {
         super(config || {
              id : "distyguitar",
              src : '/image/instrumentos/guitar1.png',
-             price:7500
+             price:75000
         
         }); 
     }
@@ -40,7 +40,7 @@ class MistyGuitar extends InventoryObject {
         super(config || {
              id : "mistyguitar",
              src : '/image/instrumentos/guitar2.png',
-             price:5000
+             price:50000
         
         }); 
     }
@@ -58,7 +58,7 @@ class BuskyGuitar extends InventoryObject {
         super(config || {
              id : "buskyguitar",
              src : '/image/instrumentos/guitar.png',
-             price:10000
+             price:100000
         
         }); 
     }
@@ -76,7 +76,7 @@ class Caixa extends InventoryObject {
         super(config || {
              id : "Caixa Cantante",
              src : '/image/instrumentos/caixa.png',
-             price:2000
+             price:20000
 
         
         }); 
@@ -95,7 +95,7 @@ class Piano extends InventoryObject {
         super(config || {
              id : "Piano",
              src : '/image/instrumentos/piano.png',
-             price:2500
+             price:25000
 
         
         }); 
@@ -114,7 +114,8 @@ class Pife extends InventoryObject {
         super(config || {
              id : "Pife",
              src : '/image/instrumentos/pife.png',
-             price:500
+             price:750,
+             tom : "E",
         
         }); 
     }
